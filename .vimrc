@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 
 " Automatically source this file if changed.
 if has("autocmd")
@@ -15,3 +16,22 @@ set tabstop=4
 set shiftround
 set expandtab
 set smarttab
+
+" Vundle bundle handler
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" Bundles:
+Bundle 'minibufexpl.vim'
+Bundle 'The-NERD-tree'
+
+filetype plugin indent on     " required!
+" =====
+
+map <F9> ::NERDTreeToggle<CR>
+
+let g:miniBufExplMapCTabSwitchBufs=1
