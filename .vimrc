@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 
+set noswapfile
+
 " Automatically source this file if changed.
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -35,3 +37,6 @@ filetype plugin indent on     " required!
 map <F9> ::NERDTreeToggle<CR>
 
 let g:miniBufExplMapCTabSwitchBufs=1
+
+" Allow modified buffers
+set hidden
