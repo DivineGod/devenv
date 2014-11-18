@@ -1,0 +1,12 @@
+[user]
+	name = Anders Rasmussen
+	email = divinegod@gmail.com
+[push]
+	default = simple
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /Users/divinegod/.config/git/ignore
