@@ -17,9 +17,10 @@ set t_Co=256
 
 syntax on
 filetype plugin indent on
-colorscheme deuteranomaly
+"colorscheme deuteranomaly
 "colorscheme ir_black
 "colorscheme sol
+"set background=light "or dark
 set background=dark "or light
 
 
@@ -40,6 +41,11 @@ set fillchars=
 
 " Behavior
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Don't use swp files
+set nobackup
+set nowritebackup
+set noswapfile
 
 "Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
