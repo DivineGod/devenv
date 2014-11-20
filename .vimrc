@@ -134,7 +134,7 @@ set expandtab
 
 au FileType python setl sw=4 sts=4 et
 au FileType scala setl sw=2 sts=2 et
-au FileType ruby,sass,scss,erb,html setl sw=2 sts=2 et
+au FileType ruby,sass,scss,erb,html,js setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
 "autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
