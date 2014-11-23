@@ -16,12 +16,16 @@ let g:syntastic_enable_signs=0
 set t_Co=256
 
 syntax on
-filetype plugin indent on
-colorscheme deuteranomaly
+"colorscheme deuteranomaly
 "colorscheme pipe_dream
+set background=dark "or light
+"colorscheme deuteranomaly
 "colorscheme ir_black
 "colorscheme sol
-set background=dark "or light
+colorscheme solarized
+"set background=light "or dark
+
+filetype plugin indent on
 
 
 " Show line numbers
@@ -42,6 +46,9 @@ set fillchars=
 " Behavior
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"Don't use swp files
+set nobackup
+set nowritebackup
 set noswapfile
 
 "Jump to last cursor position unless it's invalid or in an event handler
@@ -131,7 +138,7 @@ set expandtab
 
 au FileType python setl sw=4 sts=4 et
 au FileType scala setl sw=2 sts=2 et
-au FileType ruby,sass,scss,erb,html setl sw=2 sts=2 et
+au FileType ruby,sass,scss,erb,html,js setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
 "autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
@@ -183,7 +190,7 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", e")<cr>
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", "e")<cr>
 
 " Vertical split on startup if terminal is wider than 160 characters.
 " function VSplit()
@@ -198,3 +205,23 @@ nnoremap <leader>f :call SelectaCommand("find * -type f", "", e")<cr>
 
 " http://stackoverflow.com/questions/9850360/what-is-netrwhist
 let g:netrw_dirhistmax = 0
+
+" NERDTree Setup
+autocmd vimenter * NERDTree
+
+" Auto source .vimrc on save
+autocmd! bufwritepost .vimrc source %
+
+" Create non-existing dir on save
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
