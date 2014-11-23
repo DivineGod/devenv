@@ -2,7 +2,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable Pathogen
-call pathogen#infect()
+execute pathogen#infect()
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -18,6 +18,7 @@ set t_Co=256
 syntax on
 filetype plugin indent on
 colorscheme deuteranomaly
+"colorscheme pipe_dream
 "colorscheme ir_black
 "colorscheme sol
 set background=dark "or light
@@ -40,6 +41,8 @@ set fillchars=
 
 " Behavior
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set noswapfile
 
 "Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
