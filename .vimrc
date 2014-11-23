@@ -16,12 +16,14 @@ let g:syntastic_enable_signs=0
 set t_Co=256
 
 syntax on
-filetype plugin indent on
+set background=dark "or light
 "colorscheme deuteranomaly
 "colorscheme ir_black
 "colorscheme sol
+colorscheme solarized
 "set background=light "or dark
-set background=dark "or light
+
+filetype plugin indent on
 
 
 " Show line numbers
@@ -186,7 +188,7 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", e")<cr>
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", "e")<cr>
 
 " Vertical split on startup if terminal is wider than 160 characters.
 " function VSplit()
@@ -201,3 +203,23 @@ nnoremap <leader>f :call SelectaCommand("find * -type f", "", e")<cr>
 
 " http://stackoverflow.com/questions/9850360/what-is-netrwhist
 let g:netrw_dirhistmax = 0
+
+" NERDTree Setup
+autocmd vimenter * NERDTree
+
+" Auto source .vimrc on save
+autocmd! bufwritepost .vimrc source %
+
+" Create non-existing dir on save
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
