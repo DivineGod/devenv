@@ -10,3 +10,26 @@
 	branch = auto
 [core]
 	excludesfile = /Users/divinegod/.config/git/ignore
+[alias]
+    st = status -sb
+    l = log --pretty=format:"%C(yellow)%h%Creset %ad %s %Cred(%an)%Creset" --date=short --graph --decorate
+    c = commit
+    ca = commit --amend
+    cm = commit -m
+    cam = commit -am
+    co = checkout
+    b = branch
+    r = reset ; reset and change index leave file changes
+    rh = reset --hard ; reset, change index and remove file changes
+    rs = reset --soft ; reset, leave index and file changes
+    undo = reset --soft HEAD^ ; undo a commit if forgot to include changes
+    cl = clean -fxd ; force remove untracked files and directories including ignored
+
+[merge]
+    branchdesc = true
+    log = true
+    tool = vimdiff
+[diff]
+    tool = vimdiff
+[mergetool]
+    prompt = false
