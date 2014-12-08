@@ -208,6 +208,7 @@ let g:netrw_dirhistmax = 0
 
 " NERDTree Setup
 autocmd vimenter * NERDTree
+autocmd vimenter * wincmd p
 
 " Auto source .vimrc on save
 autocmd! bufwritepost .vimrc source %
