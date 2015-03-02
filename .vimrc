@@ -256,6 +256,7 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :call SelectaFile(".")<cr>
+nnoremap <leader>ga :call SelectaFile("apps/")<cr>
 
 " Vertical split on startup if terminal is wider than 160 characters.
 " function VSplit()
@@ -287,3 +288,7 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+hi Search cterm=underline
+hi IncSearch cterm=underline
+
