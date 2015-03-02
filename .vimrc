@@ -1,8 +1,125 @@
+" This is dg's .vimrc file
+" vim:set ts=2 sts=2 sw=2 expandtab:
+
+autocmd!
+
+call pathogen#infect()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Basic config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+" When switching buffers, hide them (instead of abandoning)
+set hidden
+" remember more commands and history
+set history=10000
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set laststatus=2
+set showmatch
+set incsearch
+set hlsearch
+" Case-insensitive searching; case-sensitive if they contains capital letter
+set ignorecase smartcase
+set cursorline
+set cmdheight=1
+set switchbuf=useopen
+set showtabline=2
+set winwidth=79
+set shell=bash
+" Show line numbers
+set number
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+" keep more context when scrolling off the end of a buffer
+set scrolloff=3
+"Don't use swp files
+set nobackup
+set nowritebackup
+set noswapfile
+set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" display incomplete commands
+set showcmd
+" Enabled syntax highlighting
+syntax on
+" Enable file type detection
+filetype plugin indent on
+"http://stackoverflow.com/questions/526858/
+" set emacs-style tab completing when selecting files, etc
+"Make vim do normal bash like tab completion for file names
+"set wildmode=longest,list,full
+set wildmode=longest,list
+set wildmenu
+let mapleader=","
+" Fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
+" Normally, Vim messes with iskeyword when you open a shell file. This can
+" leak out, polluting other file types even after a 'set ft=' change. This
+" variable prevents the iskeyword change so it can't hurt anyone.
+let g:sh_noisk=1
+" Modelines (comments that set vim options on a per-file basis)
+set modeline
+set modelines=3
+" Turn folding off for real, hopefully
+set foldmethod=manual
+set nofoldenable
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM AUTOCMDS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup vimrcEX
+  "Clear all autocmds in the group
+  autocmd!
+  autocmd Filetype text setlocal textwidth=78
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
+
+    "for ruby, autoindent with two spaces, always expand tabs
+      autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+      autocmd FileType python set sw=4 sts=4 et
+
+      autocmd! BufRead,BufNewFile *.sass setfiletype sass
+
+      autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+      autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
+
+      " Indent p tags
+      " autocmd FileType html,eruby if g:html_indent_tags !~ " '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | " endif
+
+      " Don't syntax highlight markdown because it's often wrong
+      autocmd! FileType mkd setlocal syn=off
+
+      " Leave the return key alone when in command line " windows, since it's used
+      " to run commands there.
+      autocmd! CmdwinEnter * :unmap <cr>
+      autocmd! CmdwinLeave * :call MapCR()
+
+      " *.md is markdown
+      autocmd! BufNewFile,BufRead *.md setlocal ft=
+
+      " indent slim two spaces, not four
+      autocmd! FileType *.slim set sw=2 sts=2 et
+augroup END
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable Pathogen
-execute pathogen#infect()
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -11,54 +128,22 @@ let g:syntastic_enable_signs=0
 "map [l :lprev<Enter>
 
 
-" Appearance
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-
-syntax on
-"colorscheme deuteranomaly
-"colorscheme pipe_dream
-set background=dark "or light
-"colorscheme deuteranomaly
-"colorscheme ir_black
-"colorscheme sol
+set background=light "or light
 colorscheme solarized
-"set background=light "or dark
 
-filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-
-" Show line numbers
-set number
-
-" Turn on line wrapping.
-set wrap
-
-" Set the terminal's title
-set title
-
-" Minimal width of split windows
-set winwidth=82
-
-" Set VertSplit separator character to empty space
-set fillchars=
-
-" Behavior
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"Don't use swp files
-set nobackup
-set nowritebackup
-set noswapfile
-
-"Jump to last cursor position unless it's invalid or in an event handler
-autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line("$") |
-\   exe "normal g`\"" |
-\ endif
-
+" MISC KEY MAPS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <cr> :nohlsearch<cr>
-
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -80,9 +165,6 @@ map H :bprevious<Enter>
 "noremap ] :bnext<Enter>
 "noremap [ :bprevious<Enter>
 
-" When switching buffers, hide them (instead of abandoning)
-set hidden
-
 " Save file and run previous terminal command
 "map \ :w<Enter>:!!<Enter>
 "map \\ :w<Enter>:!!<Enter>
@@ -91,14 +173,21 @@ map <space> :w<Enter>:!!<Enter>
 " Do not move cursor on *
 map * *N
 
-" Allow cursor everywhere (like in Turbo Pascal editor)
-set virtualedit=all
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
 
-" Case-insensitive searching
-set ignorecase
-
-" But case-sensitive if expression contains a capital letter
-set smartcase
 
 " Keep selection after changing indent (using > and <)
 vmap > >gv
@@ -108,32 +197,6 @@ vmap < <gv
 nnoremap j gj
 nnoremap k gk
 
-" Yank to system's clipboard
-"set clipboard=unnamed
-"set clipboard=*
-
-" Highlight matches as you type
-set incsearch
-
-" Highlight matches
-set hlsearch
-
-" Show 3 lines of context around cursor
-"set scrolloff=3
-set scrolloff=999
-"let &scrolloff=999-&scrolloff
-
-" Make \t look like 8 spaces
-set tabstop=8
-
-" Expand tabs to 4 spaces
-set softtabstop=4
-
-" How much to move using > and <
-set shiftwidth=4
-
-" Expand tabs to spaces
-set expandtab
 
 
 au FileType python setl sw=4 sts=4 et
@@ -165,12 +228,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "autocmd FileType c,ruby,python
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"http://stackoverflow.com/questions/526858/
-"Make vim do normal bash like tab completion for file names
-"set wildmode=longest,list,full
-set wildmode=longest,list
-set wildmenu
-
 "80-character guide line
 set colorcolumn=80
 
@@ -178,19 +235,27 @@ set colorcolumn=80
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
+" Needs selecta (brew install selecta)
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    silent! exec a:vim_command . " " . system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
+    redraw!
+    return
   endtry
   redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+function! SelectaFile(path)
+  call SelectaCommand("find " . a:path . "/* -type f", "", ":e")
 endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", "e")<cr>
+nnoremap <leader>f :call SelectaFile(".")<cr>
 
 " Vertical split on startup if terminal is wider than 160 characters.
 " function VSplit()
@@ -205,10 +270,6 @@ nnoremap <leader>f :call SelectaCommand("find * -type f", "", "e")<cr>
 
 " http://stackoverflow.com/questions/9850360/what-is-netrwhist
 let g:netrw_dirhistmax = 0
-
-" NERDTree Setup
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd p
 
 " Auto source .vimrc on save
 autocmd! bufwritepost .vimrc source %
