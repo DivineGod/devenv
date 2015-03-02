@@ -12,7 +12,6 @@
 	excludesfile = /Users/divinegod/.config/git/ignore
 [alias]
     st = status -sb
-    l = log --pretty=format:'%C(yellow)%h%Creset %ad %s %Cred(%an)%Creset' --date=short --graph --decorate
     c = commit
     ca = commit --amend
     cm = commit -m
@@ -24,6 +23,10 @@
     rs = reset --soft ; reset, leave index and file changes
     undo = reset --soft HEAD^ ; undo a commit if forgot to include changes
     cl = clean -fxd ; force remove untracked files and directories including ignored
+
+    # Log format
+    #l = log --pretty=format:'%C(yellow)%h%Creset %ad %s %Cred(%an)%Creset' --date=short --graph --decorate
+    l = "!source ~/.config/git/helpers.sh && pretty_log"
 
 [merge]
     branchdesc = true
