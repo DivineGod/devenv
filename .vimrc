@@ -18,6 +18,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+" set copyindent
+set smartindent
 set laststatus=2
 set showmatch
 set incsearch
@@ -132,7 +134,7 @@ let g:syntastic_enable_signs=0
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-set background=light "or light
+set background=dark "or light
 colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,6 +154,11 @@ nnoremap <c-l> <c-w>l
 
 inoremap <c-H> <c-k><-
 inoremap <c-K> <c-k>-!
+
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
 
 " Move through buffers like OS X tabs
 map L :bnext<Enter>
@@ -178,12 +185,12 @@ map * *N
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
@@ -212,15 +219,15 @@ autocmd! FileType mkd setlocal syn=off
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "autocmd BufWritePre * :%s/\s\+$//e
@@ -229,7 +236,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "80-character guide line
-set colorcolumn=80
+" set colorcolumn=80
 
 " SELECTA
 
@@ -256,7 +263,16 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>f :call SelectaFile(".")<cr>
-nnoremap <leader>ga :call SelectaFile("apps/")<cr>
+nnoremap <leader>ga :call SelectaFile("apps")<cr>
+
+function! SelectaBuffer()
+  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+  let buffers = map(bufnrs, 'bufname(v:val)')
+  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
+endfunction
+
+" Fuzzy select a buffer. Open the selected buffer with :b.
+nnoremap <leader>b :call SelectaBuffer()<cr>
 
 " Vertical split on startup if terminal is wider than 160 characters.
 " function VSplit()
@@ -277,16 +293,16 @@ autocmd! bufwritepost .vimrc source %
 
 " Create non-existing dir on save
 function! s:MkNonExDir(file, buf)
-    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-        let dir=fnamemodify(a:file, ':h')
-        if !isdirectory(dir)
-            call mkdir(dir, 'p')
-        endif
+  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+    let dir=fnamemodify(a:file, ':h')
+    if !isdirectory(dir)
+      call mkdir(dir, 'p')
     endif
+  endif
 endfunction
 augroup BWCCreateDir
-    autocmd!
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
 hi Search cterm=underline
