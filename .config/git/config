@@ -28,6 +28,9 @@
     #l = log --pretty=format:'%C(yellow)%h%Creset %ad %s %Cred(%an)%Creset' --date=short --graph --decorate
     l = "!source ~/.config/git/helpers.sh && pretty_log"
 
+    #branch history
+    bh = "!source ~/.config/git/helpers.sh && branch_stats"
+
 [merge]
     branchdesc = true
     log = true
