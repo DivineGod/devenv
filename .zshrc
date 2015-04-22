@@ -93,3 +93,6 @@ bindkey '^r' history-incremental-search-backward
 
 export NVM_DIR="/Users/divinegod/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Increase max file open limit from default 256 to 4096
+ulimit -n 4096
