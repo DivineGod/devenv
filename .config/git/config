@@ -23,6 +23,7 @@
     rs = reset --soft ; reset, leave index and file changes
     undo = reset --soft HEAD^ ; undo a commit if forgot to include changes
     cl = clean -fxd ; force remove untracked files and directories including ignored
+    fr = "!git fetch && git rebase"
 
     # Log format
     #l = log --pretty=format:'%C(yellow)%h%Creset %ad %s %Cred(%an)%Creset' --date=short --graph --decorate
