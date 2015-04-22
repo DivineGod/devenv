@@ -126,6 +126,7 @@ augroup END
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=0
+let g:syntastic_javascript_checkers = ['jshint']
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
 
