@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew npm screen opp vi-mode)
+plugins=(git osx brew npm screen)
 
 # User configuration
 
@@ -79,6 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+alias vim="/usr/local/bin/vim"
 
 # Use Vim mode for ZLE (Zsh Line Editor)
 # export KEYTIMEOUT=1
@@ -96,3 +97,5 @@ export NVM_DIR="/Users/divinegod/.nvm"
 
 # Increase max file open limit from default 256 to 4096
 ulimit -n 4096
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
