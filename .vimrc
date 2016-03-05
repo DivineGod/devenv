@@ -81,6 +81,11 @@ set autoread
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
 augroup vimrcEX
   "Clear all autocmds in the group
   autocmd!
@@ -91,9 +96,7 @@ augroup vimrcEX
       \   exe "normal g`\"" |
       \ endif
 
-    "for ruby, autoindent with two spaces, always expand tabs
-      autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
-      autocmd FileType python set sw=4 sts=4 et
+      autocmd! BufRead,BufNewFile *.coffee setfiletype coffee
 
       autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
@@ -126,10 +129,9 @@ augroup END
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=0
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['standard']
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
@@ -207,9 +209,14 @@ nnoremap k gk
 
 
 
+au FileType yaml setl sw=1 sts=1 et
 au FileType python setl sw=4 sts=4 et
 au FileType scala setl sw=2 sts=2 et
-au FileType ruby,sass,scss,erb,html,js setl sw=4 sts=4 et
+au FileType ruby setl sw=2 sts=2 et
+au FileType coffee setl sw=2 sts=2 et
+au FileType sass,scss,erb,html setl sw=4 sts=4 et
+au FileType javascript setl sw=2 sts=2 et
+au Filetype cpp setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
 "autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
