@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew npm screen)
+plugins=(git osx brew npm nvm screen vagrant)
 
 # User configuration
 
@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias vim="/usr/local/bin/vim"
+alias weather="curl http://wttr.in/Melbourne"
 
 # Use Vim mode for ZLE (Zsh Line Editor)
 # export KEYTIMEOUT=1
