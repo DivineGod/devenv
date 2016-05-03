@@ -138,7 +138,7 @@ let g:syntastic_javascript_checkers = ['standard']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 set background=dark "or light
-colorscheme birds-of-paradise
+colorscheme default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
