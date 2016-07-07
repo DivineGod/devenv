@@ -137,9 +137,9 @@ let g:syntastic_javascript_checkers = ['standard']
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-set background=dark "or light
-colorscheme default
-
+set background=light "or light
+"colorscheme=''
+let g:solarized_termtrans=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
