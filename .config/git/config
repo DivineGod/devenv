@@ -9,7 +9,7 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/divinegod/.config/git/ignore
+	excludesfile = /Users/voidedgin/.config/git/ignore
 [alias]
     st = status -sb
     c = commit
