@@ -9,7 +9,7 @@
 /.viminfo
 /.zsh_history
 /.zsh-update
-/.zcompdump
+/.zcompdump*
 /keybase
 /robomongo
 /Fritzing
