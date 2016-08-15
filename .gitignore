@@ -3,6 +3,7 @@
 /.Trash
 /.bash_history
 /.lesshst
+/.node-gyp
 /.npm
 /.nvm
 /.oh-my-zsh
