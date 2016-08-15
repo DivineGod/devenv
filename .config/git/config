@@ -32,6 +32,9 @@
     #branch history
     bh = "!source ~/.config/git/helpers.sh && branch_stats"
 
+    #close current merged branch
+    pp = "!source ~/.config/git/helpers.sh && pull_push"
+
 [merge]
     branchdesc = true
     log = true

@@ -32,3 +32,11 @@ function branch_stats() {
     column -t -s '{' |
     less -FXRS
 }
+
+function pull_push() {
+   git checkout master;
+   git pull upstream master;
+   git push origin master;
+   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+   git fetch -p;
+}
