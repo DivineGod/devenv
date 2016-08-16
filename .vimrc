@@ -3,7 +3,7 @@
 
 autocmd!
 
-call pathogen#infect()
+execute pathogen#infect()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic config
@@ -129,7 +129,7 @@ augroup END
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=0
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint']
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
 
