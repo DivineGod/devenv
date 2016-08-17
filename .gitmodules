@@ -16,9 +16,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule ".vim/bundle/vim-js-context-coloring"]
 	path = .vim/bundle/vim-js-context-coloring
 	url = git@github.com:bigfish/vim-js-context-coloring.git
