@@ -1,3 +1,3 @@
 # divinegod dotfiles
 
-Clone into homedir to valid having to setup symbolic links. Because you can never remember how to do symlinks correctly.
+Clone into homedir to avoid having to setup symbolic links. Because you can never remember how to do symlinks correctly.
