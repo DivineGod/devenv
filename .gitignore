@@ -9,6 +9,7 @@
 /.nvm
 /.oh-my-zsh
 /.pm2
+/.rediscli_history
 /.ssh
 /.viminfo
 /.zsh_history
