@@ -5,6 +5,7 @@
 /.lesshst
 /.node-gyp
 /.node_repl_history
+/.npmrcs
 /.npm
 /.nvm
 /.oh-my-zsh
