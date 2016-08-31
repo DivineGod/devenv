@@ -5,8 +5,9 @@
 /.lesshst
 /.node-gyp
 /.node_repl_history
-/.npmrcs
 /.npm
+/.npmrc
+/.npmrcs
 /.nvm
 /.oh-my-zsh
 /.pm2
