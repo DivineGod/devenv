@@ -79,7 +79,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias vim="/usr/local/bin/vim"
+#alias vim="/usr/local/bin/vim"
+alias vim="nvim"
 alias weather="curl http://wttr.in/Melbourne"
 
 # Use Vim mode for ZLE (Zsh Line Editor)
