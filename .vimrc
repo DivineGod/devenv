@@ -127,11 +127,18 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Syntastic
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=0
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_check_on_open=0
+" let g:syntastic_enable_signs=0
+" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_mode_map = {
+  \ "mode": "passive",
+  \ "active_filetypes": [],
+  \ "passive_filetypes": [] }
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd BufWritePost,BufEnter * Neomake
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
@@ -298,6 +305,7 @@ let g:netrw_dirhistmax = 0
 
 " Auto source .vimrc on save
 autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost init.vim source %
 
 " Create non-existing dir on save
 function! s:MkNonExDir(file, buf)
