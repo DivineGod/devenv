@@ -80,8 +80,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias ctags="/usr/local/bin/ctags"
-alias vim="/usr/local/bin/vim"
-# alias vim="nvim"
+# alias vim="/usr/local/bin/vim"
+alias vim="nvim"
 alias weather="curl http://wttr.in/Melbourne"
 
 # Use Vim mode for ZLE (Zsh Line Editor)
