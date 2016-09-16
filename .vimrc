@@ -143,10 +143,11 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256
-set background=light "or light
-"colorscheme=''
-let g:solarized_termtrans=1
+" set t_Co=256
+set termguicolors
+" set background=dark "or light
+colorscheme solarized8_dark_high
+" let g:solarized_termtrans=1
 
 let &t_8f="\e[38;2;%ld;%ld;%ldm"
 let &t_8b="\e[48;2;%ld;%ld;%ldm"
