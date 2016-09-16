@@ -137,7 +137,7 @@ let g:syntastic_mode_map = {
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
 let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd BufWritePost,BufEnter * Neomake
+"autocmd BufWritePost,BufEnter * Neomake
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,6 +147,9 @@ set t_Co=256
 set background=light "or light
 "colorscheme=''
 let g:solarized_termtrans=1
+
+let &t_8f="\e[38;2;%ld;%ld;%ldm"
+let &t_8b="\e[48;2;%ld;%ld;%ldm"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
