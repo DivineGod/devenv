@@ -226,7 +226,7 @@ au FileType scala setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
 au FileType coffee setl sw=2 sts=2 et
 au FileType sass,scss,erb,html setl sw=4 sts=4 et
-au FileType javascript setl sw=2 sts=2 et
+au FileType javascript setl sw=4 sts=4 et
 au Filetype cpp setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
