@@ -31,7 +31,7 @@ set cmdheight=1
 set switchbuf=useopen
 set showtabline=2
 set winwidth=79
-set shell=bash
+set shell=zsh
 " Show line numbers
 set number
 " Prevent Vim from clobbering the scrollback buffer. See
@@ -57,7 +57,7 @@ filetype plugin indent on
 " set emacs-style tab completing when selecting files, etc
 "Make vim do normal bash like tab completion for file names
 "set wildmode=longest,list,full
-set wildmode=longest,list
+set wildmode=longest,list,full
 set wildmenu
 let mapleader=","
 " Fix slow O inserts
@@ -219,7 +219,6 @@ nnoremap j gj
 nnoremap k gk
 
 
-
 au FileType yaml setl sw=1 sts=1 et
 au FileType python setl sw=4 sts=4 et
 au FileType scala setl sw=2 sts=2 et
@@ -230,7 +229,6 @@ au FileType javascript setl sw=4 sts=4 et
 au Filetype cpp setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
-"autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
 
 " Don't syntax highlight markdown because it's often wrong
 autocmd! FileType mkd setlocal syn=off
@@ -249,10 +247,9 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-"autocmd BufWritePre * :%s/\s\+$//e
 
-"autocmd FileType c,ruby,python
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+" This will not preserve the cursor position
+" autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "80-character guide line
 " set colorcolumn=80
@@ -292,17 +289,6 @@ endfunction
 
 " Fuzzy select a buffer. Open the selected buffer with :b.
 nnoremap <leader>b :call SelectaBuffer()<cr>
-
-" Vertical split on startup if terminal is wider than 160 characters.
-" function VSplit()
-"     if &columns > 160
-"         :vsplit
-"     endif
-" endfunction
-" autocmd VimEnter * :call VSplit()
-
-" Markdown
-" autocmd! BufNewFile,BufRead *.md setlocal ft=
 
 " http://stackoverflow.com/questions/9850360/what-is-netrwhist
 let g:netrw_dirhistmax = 0
