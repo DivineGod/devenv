@@ -136,7 +136,7 @@ let g:syntastic_mode_map = {
   \ "passive_filetypes": [] }
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufWritePost,BufEnter * Neomake
 
 
