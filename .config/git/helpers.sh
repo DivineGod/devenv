@@ -40,3 +40,12 @@ function pull_push() {
    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
    git fetch -p;
 }
+
+function pull_npm_push() {
+   git checkout master;
+   git pull upstream master;
+   npm i; # make sure any added packages are available for the pre-push test
+   git push origin master;
+   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+   git fetch -p;
+}
