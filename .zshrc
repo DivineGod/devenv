@@ -83,6 +83,7 @@ alias ctags="/usr/local/bin/ctags"
 alias vim="/usr/local/bin/vim"
 # alias vim="nvim"
 alias weather="curl http://wttr.in/Melbourne"
+alias ip="curl -s http://ipinfo.io/ip"
 
 # Use Vim mode for ZLE (Zsh Line Editor)
 export KEYTIMEOUT=1
