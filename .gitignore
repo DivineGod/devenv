@@ -13,6 +13,7 @@
 /.npmrcs
 /.nvm
 /.oh-my-zsh
+/.oracle_jre_usage
 /.pm2
 /.rediscli_history
 /.ssh
