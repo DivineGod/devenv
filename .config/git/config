@@ -44,3 +44,5 @@
     tool = vimdiff
 [mergetool]
     prompt = false
+[rerere]
+	enabled = true
