@@ -15,6 +15,7 @@
 /.oh-my-zsh
 /.oracle_jre_usage
 /.pm2
+/.py_envs
 /.rediscli_history
 /.ssh
 /.viminfo
