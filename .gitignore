@@ -4,8 +4,10 @@
 /.bash_history
 /.eslint_d
 /.gem
+/.karabiner.d/log
 /.lesshst
 /.local
+/.mysql_history
 /.node-gyp
 /.node_repl_history
 /.npm
