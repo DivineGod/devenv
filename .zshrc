@@ -50,9 +50,10 @@ plugins=(vi-mode git osx brew brew-cask npm nvm screen vagrant)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:${HOME}/bin:${HOME}/code/go/bin"
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/code/go
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:${HOME}/bin:${GOPATH}/bin"
+export PATH=$PATH:$GOROOT/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
