@@ -146,6 +146,7 @@ autocmd BufWritePost,BufEnter * Neomake
 " set t_Co=256
 set termguicolors
 " set background=dark "or light
+let g:solarized_term_italics=1
 colorscheme solarized8_dark_high
 " let g:solarized_termtrans=1
 
