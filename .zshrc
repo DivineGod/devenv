@@ -48,7 +48,7 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode git osx brew brew-cask npm nvm screen vagrant yarn)
+plugins=(vi-mode git osx brew brew-cask npm nvm screen vagrant yarn zsh-syntax-highlighting)
 
 # User configuration
 
