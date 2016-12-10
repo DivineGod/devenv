@@ -1,5 +1,6 @@
 function fish_prompt
-	if not set -q -g __fish_robbyrussell_functions_defined
+  set -l last_status $status
+  if not set -q -g __fish_robbyrussell_functions_defined
     set -g __fish_robbyrussell_functions_defined
     function _git_branch_name
       echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
@@ -50,17 +51,29 @@ function fish_prompt
   set -l blue (set_color -o blue)
   set -l normal (set_color normal)
 
-  set -l arrow "$red➜ "
-  if [ $USER = 'root' ]
-    set arrow "$red# "
+  set -l statusColor (set_color -o yellow)
+  if [ $last_status = 0 ]
+    set statusColor (set_color -o green)
+  else if [ $last_status > 0 ]
+    set statusColor (set_color -o red)
   end
 
-  set -l cwd $cyan(basename (prompt_pwd))
+  set -l arrow "$statusColor❯"
+  if [ $USER = 'root' ]
+    set arrow "$statusColor#"
+  end
+
+  set -l pwd $cyan(prompt_pwd | sed 's|^~||')
+  if [ (prompt_pwd) = '~' ]
+    set pwd ""
+  else
+    set pwd "$pwd"
+  end
 
   set -l repo_type (_repo_type)
   if [ $repo_type ]
     set -l repo_branch $red(_repo_branch_name $repo_type)
-    set repo_info "$blue $repo_type:($repo_branch$blue)"
+    set repo_info "$blue$repo_type:($repo_branch$blue)"
 
     if [ (_is_repo_dirty $repo_type) ]
       set -l dirty "$yellow ✗"
@@ -68,5 +81,8 @@ function fish_prompt
     end
   end
 
-  echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+  set -l user "$cyan$USER"
+
+  echo "$user$pwd $repo_info $normal"
+  echo -n -s $arrow ' '
 end
