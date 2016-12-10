@@ -3,6 +3,7 @@
 /.Trash
 /.bash_history
 /.config/how-to-npm
+/.config/fish/fishd.*
 /.eslint_d
 /.gem
 /.karabiner.d/log
