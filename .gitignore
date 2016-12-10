@@ -2,6 +2,7 @@
 /.CFUserTextEncoding
 /.Trash
 /.bash_history
+/.cache
 /.config/how-to-npm
 /.config/fish/fishd.*
 /.eslint_d
@@ -23,6 +24,7 @@
 /.py_envs
 /.rediscli_history
 /.ssh
+/.subversion
 /.viminfo
 /.zsh_history
 /.zsh-update
