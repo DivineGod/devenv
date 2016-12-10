@@ -54,9 +54,9 @@ function fish_prompt
   set -l normal (set_color normal)
 
   set -l statusColor (set_color -o yellow)
-  if [ $last_status = 0 ]
+  if test $last_status -eq 0
     set statusColor (set_color -o green)
-  else if [ $last_status > 0 ]
+  else
     set statusColor (set_color -o red)
   end
 
@@ -86,5 +86,24 @@ function fish_prompt
   set -l user "$blue$USER"
 
   echo "$user$pwd $repo_info $normal"
-  echo -n -s $arrow ' '
+
+  set -l mode ' '
+  if test "$fish_key_bindings" = "fish_vi_key_bindings"
+    or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
+    switch $fish_bind_mode
+        case default
+          # set_color --bold --background red white
+          set mode 'N'
+        case insert
+          # set_color --bold --background green white
+          set mode 'I'
+        case replace-one
+          # set_color --bold --background green white
+          set mode 'R'
+        case visual
+          # set_color --bold --background magenta white
+          set mode 'V'
+    end
+  end
+  echo -n -s $mode $arrow ' '
 end
