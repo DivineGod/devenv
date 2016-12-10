@@ -49,6 +49,8 @@ function fish_prompt
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
   set -l blue (set_color -o blue)
+  set -l brblue (set_color -o brblue)
+  set -l brblack (set_color -o brblack)
   set -l normal (set_color normal)
 
   set -l statusColor (set_color -o yellow)
@@ -63,7 +65,7 @@ function fish_prompt
     set arrow "$statusColor#"
   end
 
-  set -l pwd $cyan(prompt_pwd | sed 's|^~||')
+  set -l pwd $blue(prompt_pwd | sed 's|^~||')
   if [ (prompt_pwd) = '~' ]
     set pwd ""
   else
@@ -72,8 +74,8 @@ function fish_prompt
 
   set -l repo_type (_repo_type)
   if [ $repo_type ]
-    set -l repo_branch $red(_repo_branch_name $repo_type)
-    set repo_info "$blue$repo_type:($repo_branch$blue)"
+    set -l repo_branch (_repo_branch_name $repo_type)
+    set repo_info "$brblack$repo_type/$repo_branch"
 
     if [ (_is_repo_dirty $repo_type) ]
       set -l dirty "$yellow ✗"
@@ -81,7 +83,7 @@ function fish_prompt
     end
   end
 
-  set -l user "$cyan$USER"
+  set -l user "$blue$USER"
 
   echo "$user$pwd $repo_info $normal"
   echo -n -s $arrow ' '
