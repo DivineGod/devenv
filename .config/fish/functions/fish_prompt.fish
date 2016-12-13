@@ -60,9 +60,10 @@ function fish_prompt
     set statusColor (set_color -o red)
   end
 
-  set -l arrow "$statusColor❯"
+  # set -l arrow "$statusColor❯"
+  set -l arrow "$statusColorᚦ"
   if [ $USER = 'root' ]
-    set arrow "$statusColor#"
+    # set arrow "$statusColor#"
   end
 
   set -l pwd $blue(prompt_pwd | sed 's|^~||')
@@ -105,5 +106,5 @@ function fish_prompt
           set mode 'V'
     end
   end
-  echo -n -s $mode $arrow ' '
+  echo -n -s $mode$normal $arrow ' '
 end
