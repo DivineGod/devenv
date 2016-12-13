@@ -66,12 +66,7 @@ function fish_prompt
     # set arrow "$statusColor#"
   end
 
-  set -l pwd $blue(prompt_pwd | sed 's|^~||')
-  if [ (prompt_pwd) = '~' ]
-    set pwd ""
-  else
-    set pwd "$pwd"
-  end
+  set -l pwd $blue(prompt_pwd)
 
   set -l repo_type (_repo_type)
   if [ $repo_type ]
@@ -84,9 +79,7 @@ function fish_prompt
     end
   end
 
-  set -l user "$blue$USER"
-
-  echo "$user$pwd $repo_info $normal"
+  echo "$pwd $repo_info $normal"
 
   set -l mode ' '
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
@@ -106,5 +99,5 @@ function fish_prompt
           set mode 'V'
     end
   end
-  echo -n -s $mode$normal $arrow ' '
+  echo -n -s $arrow ' '
 end
