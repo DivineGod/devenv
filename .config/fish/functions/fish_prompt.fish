@@ -1,13 +1,26 @@
 function fish_prompt
   set -l last_status $status
+
   if not set -q -g __fish_robbyrussell_functions_defined
     set -g __fish_robbyrussell_functions_defined
+
     function _git_branch_name
       echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
     end
 
     function _is_git_dirty
-      echo (git status -s --ignore-submodules=dirty ^/dev/null)
+      set -l _git_state (git status -s --ignore-submodules=dirty ^/dev/null)
+      [ "$_git_state" != "" ]
+    end
+
+    function _is_git_ahead
+      set -l revs (git rev-list origin/(_git_branch_name)..HEAD ^/dev/null)
+      [ "$revs" != "" ]
+    end
+
+    function _is_git_behind
+      set -l revs (git rev-list HEAD..origin/(_git_branch_name) ^/dev/null)
+      [ "$revs" != "" ]
     end
 
     function _is_git_repo
@@ -17,6 +30,14 @@ function fish_prompt
 
     function _hg_branch_name
       echo (hg branch ^/dev/null)
+    end
+
+    function _is_hg_behind
+      echo (hg status -mard ^/dev/null)
+    end
+
+    function _is_hg_ahead
+      echo (hg status -mard ^/dev/null)
     end
 
     function _is_hg_dirty
@@ -36,6 +57,14 @@ function fish_prompt
       eval "_is_$argv[1]_dirty"
     end
 
+    function _is_repo_ahead
+      eval "_is_$argv[1]_ahead"
+    end
+
+    function _is_repo_behind
+      eval "_is_$argv[1]_behind"
+    end
+
     function _repo_type
       if _is_hg_repo
         echo 'hg'
@@ -48,6 +77,7 @@ function fish_prompt
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
+  set -l green (set_color -o green)
   set -l blue (set_color -o blue)
   set -l brblue (set_color -o brblue)
   set -l brblack (set_color -o brblack)
@@ -60,11 +90,7 @@ function fish_prompt
     set statusColor (set_color -o red)
   end
 
-  # set -l arrow "$statusColor❯"
   set -l arrow "$statusColorᚦ"
-  if [ $USER = 'root' ]
-    # set arrow "$statusColor#"
-  end
 
   set -l pwd $blue(prompt_pwd)
 
@@ -73,10 +99,23 @@ function fish_prompt
     set -l repo_branch (_repo_branch_name $repo_type)
     set repo_info "$brblack$repo_type/$repo_branch"
 
-    if [ (_is_repo_dirty $repo_type) ]
-      set -l dirty "$yellow ✗"
-      set repo_info "$repo_info$dirty"
+    set -l repo_status_color "$green"
+    set -l repo_status_symbol "◯"
+    if _is_repo_dirty $repo_type
+      set repo_status_color "$yellow"
     end
+    if _is_repo_ahead $repo_type
+      set repo_status_symbol "↑"
+    end
+    if _is_repo_behind $repo_type
+      set repo_status_symbol "↓"
+    end
+    if _is_repo_ahead $repo_type;
+      and _is_repo_behind $repo_type
+      set repo_status_symbol "⇅"
+    end
+    set -l repo_status "$repo_status_color$repo_status_symbol"
+    set repo_info "$repo_info $repo_status"
   end
 
   echo "$pwd $repo_info $normal"
