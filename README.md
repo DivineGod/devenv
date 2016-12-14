@@ -6,8 +6,9 @@ Clone into homedir to avoid having to setup symbolic links. Because you can neve
 
 Uses:
 
-* oh_my_zsh
-* neovim
+* oh_my_zsh in zsh
+* fish
+* vim
 * brew
 * brew cask
 * nvm
