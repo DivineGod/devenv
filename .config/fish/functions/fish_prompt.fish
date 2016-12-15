@@ -51,35 +51,33 @@ function fish_prompt
     end
   end
 
-  set -l cyan (set_color -o cyan)
-  set -l yellow (set_color -o yellow)
-  set -l red (set_color -o red)
-  set -l green (set_color -o green)
-  set -l blue (set_color -o blue)
-  set -l brblue (set_color -o brblue)
-  set -l brblack (set_color -o brblack)
+  set -l warn (set_color -o yellow)
+  set -l error (set_color -o red)
+  set -l ok (set_color -o green)
+  set -l info (set_color -o blue)
+  set -l comment (set_color -o brblack)
   set -l normal (set_color normal)
 
-  set -l statusColor (set_color -o yellow)
+  set -l statusColor "$warn"
   if test $last_status -eq 0
-    set statusColor (set_color -o green)
+    set statusColor "$ok"
   else
-    set statusColor (set_color -o red)
+    set statusColor "$error"
   end
 
   set -l arrow "$statusColorᚦ"
 
-  set -l pwd $blue(prompt_pwd)
+  set -l pwd $info(prompt_pwd)
 
   set -l repo_type (_repo_type)
   if [ $repo_type ]
     set -l repo_branch (_repo_branch_name $repo_type)
-    set repo_info "$brblack$repo_type/$repo_branch"
+    set repo_info "$comment$repo_type/$repo_branch"
 
-    set -l repo_status_color "$green"
+    set -l repo_status_color "$ok"
     set -l repo_status_symbol "◯"
     if _is_repo_dirty $repo_type
-      set repo_status_color "$yellow"
+      set repo_status_color "$warn"
     end
     if _is_repo_ahead $repo_type
       set repo_status_symbol "↑"
@@ -102,13 +100,10 @@ function fish_prompt
     or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
     switch $fish_bind_mode
         case default
-          # set_color --bold --background red white
           set mode 'N'
         case insert
-          # set_color --bold --background green white
           set mode 'I'
         case replace-one
-          # set_color --bold --background green white
           set mode 'R'
         case visual
           # set_color --bold --background magenta white
