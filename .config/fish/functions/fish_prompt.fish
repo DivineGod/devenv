@@ -58,14 +58,12 @@ function fish_prompt
   set -l comment (set_color -o brblack)
   set -l normal (set_color normal)
 
-  set -l statusColor "$warn"
+  set -l status_color "$warn"
   if test $last_status -eq 0
-    set statusColor "$ok"
+    set status_color "$ok"
   else
-    set statusColor "$error"
+    set status_color "$error"
   end
-
-  set -l arrow "$statusColorᚦ"
 
   set -l pwd $info(prompt_pwd)
 
@@ -95,20 +93,19 @@ function fish_prompt
 
   echo "$pwd $repo_info $normal"
 
-  set -l mode ' '
+  set -l mode 'ᚦ'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
     or test "$fish_key_bindings" = "fish_hybrid_key_bindings"
     switch $fish_bind_mode
         case default
-          set mode 'N'
+          set mode 'ᛝ'
         case insert
-          set mode 'I'
+          set mode 'ᚦ'
         case replace-one
-          set mode 'R'
+          set mode 'ᚱ'
         case visual
-          # set_color --bold --background magenta white
-          set mode 'V'
+          set mode 'ᛄ'
     end
   end
-  echo -n -s $arrow ' '
+  echo -n -s "$status_color$mode$normal "
 end
