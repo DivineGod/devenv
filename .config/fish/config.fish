@@ -645,6 +645,6 @@ function yi
     yarn install
 end
 
-set -g GOROOT /usr/local/go
-set -g GOPATH $HOME/code/go
+set -g -x GOROOT /usr/local/go
+set -g -x GOPATH $HOME/code/go
 set -g -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin $HOME/bin $GOPATH/bin
