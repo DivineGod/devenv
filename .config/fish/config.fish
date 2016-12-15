@@ -18,56 +18,36 @@ function afind
     ack -il
 end
 
-function brews
-    brew list -1
-end
-
-function bubc
-    brew upgrade; and brew cleanup
-end
-
-function bubo
-    brew update; and brew outdated
-end
-
-function bubu
-    bubo; and bubc
-end
-
-function ctags
-    /usr/local/bin/ctags
-end
-
 function d
     dirs -v | head -10
 end
 
 function g
-    git
+    git $argv
 end
 
 function ga
-    git add
+    git add $argv
 end
 
 function gaa
-    git add --all
+    git add --all $argv
 end
 
 function gapa
-    git add --patch
+    git add --patch $argv
 end
 
 function gb
-    git branch
+    git branch $argv
 end
 
 function gba
-    git branch -a
+    git branch -a $argv
 end
 
 function gbd
-    git branch -d
+    git branch -d $argv
 end
 
 function gbda
@@ -107,35 +87,35 @@ function gbss
 end
 
 function gc
-    git commit -v
+    git commit -v $argv
 end
 
 function "gc!"
-    git commit -v --amend
+    git commit -v --amend $argv
 end
 
 function gca
-    git commit -v -a
+    git commit -v -a $argv
 end
 
 function "gca!"
-    git commit -v -a --amend
+    git commit -v -a --amend $argv
 end
 
 function gcam
-    git commit -a -m
+    git commit -a -m $argv
 end
 
 function "gcan!"
-    git commit -v -a --no-edit --amend
+    git commit -v -a --no-edit --amend $argv
 end
 
 function "gcans!"
-    git commit -v -a -s --no-edit --amend
+    git commit -v -a -s --no-edit --amend $argv
 end
 
 function gcb
-    git checkout -b
+    git checkout -b $argv
 end
 
 function gcd
@@ -148,11 +128,11 @@ end
 
 
 function gcl
-    git clone --recursive
+    git clone --recursive $argv
 end
 
 function gclean
-    git clean -fd
+    git clean -fd $argv
 end
 
 function gcm
@@ -160,15 +140,15 @@ function gcm
 end
 
 function gcmsg
-    git commit -m
+    git commit -m $argv
 end
 
 function "gcn!"
-    git commit -v --no-edit --amend
+    git commit -v --no-edit --amend $argv
 end
 
 function gco
-    git checkout
+    git checkout $argv
 end
 
 function gcount
@@ -176,7 +156,7 @@ function gcount
 end
 
 function gcp
-    git cherry-pick
+    git cherry-pick $argv
 end
 
 function gcpa
@@ -188,11 +168,11 @@ function gcpc
 end
 
 function gcs
-    git commit -S
+    git commit -S $argv
 end
 
 function gcsm
-    git commit -s -m
+    git commit -s -m $argv
 end
 
 function gd
@@ -204,157 +184,137 @@ function gdca
 end
 
 function gdct
-    git describe --tags `git rev-list --tags --max-count=1`
+    git describe --tags `git rev-list --tags --max-count=1` $argv
 end
 
 function gdt
-    git diff-tree --no-commit-id --name-only -r
+    git diff-tree --no-commit-id --name-only -r $argv
 end
 
 function gdw
-    git diff --word-diff
+    git diff --word-diff $argv
 end
 
 function gf
-    git fetch
+    git fetch $argv
 end
 
 function gfa
-    git fetch --all --prune
+    git fetch --all --prune $argv
 end
 
 function gfo
-    git fetch origin
+    git fetch origin $argv
 end
 
 function gg
-    git gui citool
+    git gui citool $argv
 end
 
 function gga
-    git gui citool --amend
+    git gui citool --amend $argv
 end
 
 function ggpull
-    git pull origin (git_current_branch)
+    git pull origin (git_current_branch) $argv
 end
 
 function ggpur
-    ggu
+    ggu $argv
 end
 
 function ggpush
-    git push origin (git_current_branch)
+    git push origin (git_current_branch) $argv
 end
 
 function ggsup
-    git branch --set-upstream-to=origin/(git_current_branch)
+    git branch --set-upstream-to=origin/(git_current_branch) $argv
 end
 function ghh
-    git help
+    git help $argv
 end
 
 function gignore
-    git update-index --assume-unchanged
+    git update-index --assume-unchanged $argv
 end
 
 function gignored
     'git ls-files -v | grep "^[[:lower:]]"'
 end
 
-function git-svn-dcommit-push
-    git svn dcommit; and git push github master:svntrunk
-end
-
-function gk
-    \gitk --all --branches
-end
-
-function gke
-    gitk --all (git log -g --pretty=%h)
-end
-
 function gl
-    git pull
+    git pull $argv
 end
 
 function glg
-    git log --stat
+    git log --stat $argv
 end
 
 function glgg
-    git log --graph
+    git log --graph $argv
 end
 
 function glgga
-    git log --graph --decorate --all
+    git log --graph --decorate --all $argv
 end
 
 function glgm
-    git log --graph --max-count=10
+    git log --graph --max-count=10 $argv
 end
 
 function glgp
-    git log --stat -p
+    git log --stat -p $argv
 end
 
 function glo
-    git log --oneline --decorate
-end
-
-function globurl
-    noglob urlglobber
+    git log --oneline --decorate $argv
 end
 
 function glog
-    git log --oneline --decorate --graph
+    git log --oneline --decorate --graph $argv
 end
 
 function gloga
-    git log --oneline --decorate --graph --all
+    git log --oneline --decorate --graph --all $argv
 end
 
 function glol
-    git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit
+    git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit $argv
 end
 
 function glola
-    git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit --all
-end
-
-function glp
-    _git_log_prettily
+    git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit --all $argv
 end
 
 function glum
-    git pull upstream master
+    git pull upstream master $argv
 end
 function gm
-    git merge
+    git merge $argv
 end
 
 function gmom
-    git merge origin/master
+    git merge origin/master $argv
 end
 
 function gmt
-    git mergetool --no-prompt
+    git mergetool --no-prompt $argv
 end
 
 function gmtvim
-    git mergetool --no-prompt --tool=vimdiff
+    git mergetool --no-prompt --tool=vimdiff $argv
 end
 
 function gmum
-    git merge upstream/master
+    git merge upstream/master $argv
 end
 
 function gp
-    git push
+    git push $argv
 end
 
 function gpd
-    git push --dry-run
+    git push --dry-run $argv
 end
 
 function gpoat
@@ -366,71 +326,71 @@ function gpristine
 end
 
 function gpsup
-    git push --set-upstream origin (git_current_branch)
+    git push --set-upstream origin (git_current_branch) $argv
 end
 
 function gpu
-    git push upstream
+    git push upstream $argv
 end
 
 function gpv
-    git push -v
+    git push -v $argv
 end
 
 function gr
-    git remote
+    git remote $argv
 end
 
 function gra
-    git remote add
+    git remote add $argv
 end
 
 function grb
-    git rebase
+    git rebase $argv
 end
 
 function grba
-    git rebase --abort
+    git rebase --abort $argv
 end
 
 function grbc
-    git rebase --continue
+    git rebase --continue $argv
 end
 
 function grbi
-    git rebase -i
+    git rebase -i $argv
 end
 
 function grbm
-    git rebase master
+    git rebase master $argv
 end
 
 function grbs
-    git rebase --skip
+    git rebase --skip $argv
 end
 
 function grep
-    grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}
+    grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $argv
 end
 
 function grh
-    git reset HEAD
+    git reset HEAD $argv
 end
 
 function grhh
-    git reset HEAD --hard
+    git reset HEAD --hard $argv
 end
 
 function grmv
-    git remote rename
+    git remote rename $argv
 end
 
 function grrm
-    git remote remove
+    git remote remove $argv
 end
 
 function grset
-    git remote set-url
+    git remote set-url $argv
 end
 
 function grt
@@ -438,99 +398,99 @@ function grt
 end
 
 function gru
-    git reset --
+    git reset -- $argv
 end
 
 function grup
-    git remote update
+    git remote update $argv
 end
 
 function grv
-    git remote -v
+    git remote -v $argv
 end
 function gsb
-    git status -sb
+    git status -sb $argv
 end
 
 function gsd
-    git svn dcommit
+    git svn dcommit $argv
 end
 
 function gsi
-    git submodule init
+    git submodule init $argv
 end
 
 function gsps
-    git show --pretty=short --show-signature
+    git show --pretty=short --show-signature $argv
 end
 
 function gsr
-    git svn rebase
+    git svn rebase $argv
 end
 
 function gss
-    git status -s
+    git status -s $argv
 end
 function gst
-    git status
+    git status $argv
 end
 
 function gsta
-    git stash save
+    git stash save $argv
 end
 
 function gstaa
-    git stash apply
+    git stash apply $argv
 end
 
 function gstc
-    git stash clear
+    git stash clear $argv
 end
 
 function gstd
-    git stash drop
+    git stash drop $argv
 end
 
 function gstl
-    git stash list
+    git stash list $argv
 end
 
 function gstp
-    git stash pop
+    git stash pop $argv
 end
 function gsts
-    git stash show --text
+    git stash show --text $argv
 end
 
 function gsu
-    git submodule update
+    git submodule update $argv
 end
 
 function gts
-    git tag -s
+    git tag -s $argv
 end
 
 function gtv
-    git tag | sort -V
+    git tag | sort -V $argv
 end
 
 function gunignore
-    git update-index --no-assume-unchanged
+    git update-index --no-assume-unchanged $argv
 end
 function gunwip
     git log -n 1 | grep -q -c "\-\-wip\-\-"; and git reset HEAD~1
 end
 
 function gup
-    git pull --rebase
+    git pull --rebase $argv
 end
 
 function gupv
-    git pull --rebase -v
+    git pull --rebase -v $argv
 end
 
 function gwch
-    git whatchanged -p --abbrev-commit --pretty=medium
+    git whatchanged -p --abbrev-commit --pretty=medium $argv
 end
 
 function gwip
@@ -541,40 +501,8 @@ function hidefiles
     defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder
 end
 
-function history
-    fc -l 1
-end
-
-function ip
-    curl -s http://ipinfo.io/ip
-end
-
-function ls -w ls
-    command ls -G $argv
-end
-
-function l
-    ls -lah $argv
-end
-
-function la
-    ls -lAh $argv
-end
-
-function ll
-    ls -lh $argv
-end
-
-function lsa
-    ls -lah $argv
-end
-
-function md
-    mkdir -p $argv
-end
-
 function npmD
-    npm i -D
+    npm i -D $argv
 end
 
 function npmE
@@ -582,31 +510,31 @@ function npmE
 end
 
 function npmL
-    npm list
+    npm list $argv
 end
 
 function npmO
-    npm outdated
+    npm outdated $argv
 end
 
 function npmS
-    npm i -S
+    npm i -S $argv
 end
 
 function npmV
-    npm -v
+    npm -v $argv
 end
 
 function npmg
-    npm i -g
+    npm i -g $argv
 end
 
 function npmst
-    npm start
+    npm start $argv
 end
 
 function npmt
-    npm test
+    npm test $argv
 end
 
 function ofd
@@ -614,35 +542,27 @@ function ofd
 end
 
 function please
-    sudo
+    sudo $argv
 end
 
 function po
-    popd
+    popd $argv
 end
 
 function pu
-    pushd
+    pushd $argv
 end
 
 function rd
-    rmdir
+    rmdir $argv
 end
 
 function run-help
-    man
+    man $argv
 end
 
 function showfiles
     defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder
-end
-
-function weather
-    curl http://wttr.in/Melbourne
-end
-
-function yi
-    yarn install
 end
 
 set -g -x GOROOT /usr/local/go
