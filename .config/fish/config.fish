@@ -549,28 +549,28 @@ function ip
     curl -s http://ipinfo.io/ip
 end
 
-function ls
+function ls -w ls
     command ls -G $argv
 end
 
-function l --wraps ls
-    ls -lah
+function l
+    ls -lah $argv
 end
 
 function la
-    ls -lAh
+    ls -lAh $argv
 end
 
 function ll
-    ls -lh
+    ls -lh $argv
 end
 
 function lsa
-    ls -lah
+    ls -lah $argv
 end
 
 function md
-    mkdir -p
+    mkdir -p $argv
 end
 
 function npmD
