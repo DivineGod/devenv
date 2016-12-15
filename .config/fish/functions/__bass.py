@@ -1,0 +1,1 @@
+/Users/voidedgin/.config/fisherman/bass/functions/__bass.py

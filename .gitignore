@@ -5,6 +5,7 @@
 /.cache
 /.config/how-to-npm
 /.config/fish/fishd.*
+/.config/fisherman
 /.eslint_d
 /.gem
 /.karabiner.d/log
