@@ -51,6 +51,14 @@ function fish_prompt
     end
   end
 
+  if not set -q -g __fish_prompt_functions_defined
+    set -g __fish_prompt_functions_defined
+
+    function _status_okay
+      [ $argv[1] = 0 ]
+    end
+  end
+
   set -l warn (set_color -o yellow)
   set -l error (set_color -o red)
   set -l ok (set_color -o green)
@@ -59,7 +67,7 @@ function fish_prompt
   set -l normal (set_color normal)
 
   set -l status_color "$warn"
-  if test $last_status -eq 0
+  if _status_okay $last_status
     set status_color "$ok"
   else
     set status_color "$error"
@@ -74,19 +82,24 @@ function fish_prompt
 
     set -l repo_status_color "$ok"
     set -l repo_status_symbol "◯"
+
     if _is_repo_dirty $repo_type
       set repo_status_color "$warn"
     end
+
     if _is_repo_ahead $repo_type
       set repo_status_symbol "↑"
     end
+
     if _is_repo_behind $repo_type
       set repo_status_symbol "↓"
     end
+
     if _is_repo_ahead $repo_type;
       and _is_repo_behind $repo_type
       set repo_status_symbol "⇅"
     end
+
     set -l repo_status "$repo_status_color$repo_status_symbol"
     set repo_info "$repo_info $repo_status"
   end
