@@ -60,6 +60,7 @@ function fish_prompt
   end
 
   set -l italic (echo -e "\e[3m")
+  set -l dim (echo -e "\e[2m")
   set -l warn (set_color -o yellow)
   set -l error (set_color -o red)
   set -l ok (set_color -o green)
@@ -79,7 +80,7 @@ function fish_prompt
   set -l repo_type (_repo_type)
   if [ $repo_type ]
     set -l repo_branch (_repo_branch_name $repo_type)
-    set repo_info "$comment$repo_type/$repo_branch$normal"
+    set repo_info "$comment$dim$repo_type$normal $dim$repo_branch$normal"
 
     set -l repo_status_color "$ok"
     set -l repo_status_symbol "◯"
