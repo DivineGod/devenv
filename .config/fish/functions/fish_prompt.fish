@@ -25,7 +25,8 @@ function fish_prompt
 
     function _is_git_repo
       type -q git; or return 1
-      git status -s >/dev/null ^/dev/null
+      git check-ignore -q . >/dev/null ^/dev/null
+      [ $status != 0 ]; and git status -s >/dev/null ^/dev/null
     end
 
     function _repo_branch_name
