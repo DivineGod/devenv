@@ -362,7 +362,7 @@ function grbs -w git
 end
 
 function grep -w git
-    grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $argv
+    command grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $argv
 end
 
 function grh -w git
