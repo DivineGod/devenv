@@ -22,71 +22,71 @@ function d
     dirs -v | head -10
 end
 
-function g
+function g -w git
     git $argv
 end
 
-function ga
+function ga -w git
     git add $argv
 end
 
-function gaa
+function gaa -w git
     git add --all $argv
 end
 
-function gapa
+function gapa -w git
     git add --patch $argv
 end
 
-function gb
+function gb -w git
     git branch $argv
 end
 
-function gba
+function gba -w git
     git branch -a $argv
 end
 
-function gbd
+function gbd -w git
     git branch -d $argv
 end
 
-function gbda
-    'git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+function gbda -w git
+    git branch --no-color --merged | command grep -vE '^(\*|\s*(master|develop|dev)\s*$)' | command xargs -n 1 git branch -d
 end
 
-function gbl
+function gbl -w git
     git blame -b -w
 end
 
-function gbnm
+function gbnm -w git
     git branch --no-merged
 end
 
-function gbr
+function gbr -w git
     git branch --remote
 end
 
-function gbs
+function gbs -w git
     git bisect
 end
 
-function gbsb
+function gbsb -w git
     git bisect bad
 end
 
-function gbsg
+function gbsg -w git
     git bisect good
 end
 
-function gbsr
+function gbsr -w git
     git bisect reset
 end
 
-function gbss
+function gbss -w git
     git bisect start
 end
 
-function gc
+function gc -w git
     git commit -v $argv
 end
 
@@ -94,7 +94,7 @@ function "gc!"
     git commit -v --amend $argv
 end
 
-function gca
+function gca -w git
     git commit -v -a $argv
 end
 
@@ -102,7 +102,7 @@ function "gca!"
     git commit -v -a --amend $argv
 end
 
-function gcam
+function gcam -w git
     git commit -a -m $argv
 end
 
@@ -114,32 +114,32 @@ function "gcans!"
     git commit -v -a -s --no-edit --amend $argv
 end
 
-function gcb
+function gcb -w git
     git checkout -b $argv
 end
 
-function gcd
+function gcd -w git
     git checkout develop
 end
 
-function gcf
+function gcf -w git
     git config --list
 end
 
 
-function gcl
+function gcl -w git
     git clone --recursive $argv
 end
 
-function gclean
+function gclean -w git
     git clean -fd $argv
 end
 
-function gcm
+function gcm -w git
     git checkout master
 end
 
-function gcmsg
+function gcmsg -w git
     git commit -m $argv
 end
 
@@ -147,353 +147,345 @@ function "gcn!"
     git commit -v --no-edit --amend $argv
 end
 
-function gco
+function gco -w git
     git checkout $argv
 end
 
-function gcount
+function gcount -w git
     git shortlog -sn
 end
 
-function gcp
+function gcp -w git
     git cherry-pick $argv
 end
 
-function gcpa
+function gcpa -w git
     git cherry-pick --abort
 end
 
-function gcpc
+function gcpc -w git
     git cherry-pick --continue
 end
 
-function gcs
+function gcs -w git
     git commit -S $argv
 end
 
-function gcsm
+function gcsm -w git
     git commit -s -m $argv
 end
 
-function gd
+function gd -w git
     git diff
 end
 
-function gdca
+function gdca -w git
     git diff --cached
 end
 
-function gdct
+function gdct -w git
     git describe --tags `git rev-list --tags --max-count=1` $argv
 end
 
-function gdt
+function gdt -w git
     git diff-tree --no-commit-id --name-only -r $argv
 end
 
-function gdw
+function gdw -w git
     git diff --word-diff $argv
 end
 
-function gf
+function gf -w git
     git fetch $argv
 end
 
-function gfa
+function gfa -w git
     git fetch --all --prune $argv
 end
 
-function gfo
+function gfo -w git
     git fetch origin $argv
 end
 
-function gg
-    git gui citool $argv
-end
-
-function gga
-    git gui citool --amend $argv
-end
-
-function ggpull
+function ggpull -w git
     git pull origin (git_current_branch) $argv
 end
 
-function ggpur
+function ggpur -w git
     ggu $argv
 end
 
-function ggpush
+function ggpush -w git
     git push origin (git_current_branch) $argv
 end
 
-function ggsup
+function ggsup -w git
     git branch --set-upstream-to=origin/(git_current_branch) $argv
 end
-function ghh
+function ghh -w git
     git help $argv
 end
 
-function gignore
+function gignore -w git
     git update-index --assume-unchanged $argv
 end
 
-function gignored
+function gignored -w git
     'git ls-files -v | grep "^[[:lower:]]"'
 end
 
-function gl
+function gl -w git
     git pull $argv
 end
 
-function glg
+function glg -w git
     git log --stat $argv
 end
 
-function glgg
+function glgg -w git
     git log --graph $argv
 end
 
-function glgga
+function glgga -w git
     git log --graph --decorate --all $argv
 end
 
-function glgm
+function glgm -w git
     git log --graph --max-count=10 $argv
 end
 
-function glgp
+function glgp -w git
     git log --stat -p $argv
 end
 
-function glo
+function glo -w git
     git log --oneline --decorate $argv
 end
 
-function glog
+function glog -w git
     git log --oneline --decorate --graph $argv
 end
 
-function gloga
+function gloga -w git
     git log --oneline --decorate --graph --all $argv
 end
 
-function glol
+function glol -w git
     git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit $argv
 end
 
-function glola
+function glola -w git
     git log --graph --pretty="\""(set_color red)%h(set_color normal) -(set_color yellow)%d(set_color normal) %s (set_color green)%cr (set_color --bold blue)<%an>(set_color normal)"\"" --abbrev-commit --all $argv
 end
 
-function glum
+function glum -w git
     git pull upstream master $argv
 end
-function gm
+function gm -w git
     git merge $argv
 end
 
-function gmom
+function gmom -w git
     git merge origin/master $argv
 end
 
-function gmt
+function gmt -w git
     git mergetool --no-prompt $argv
 end
 
-function gmtvim
+function gmtvim -w git
     git mergetool --no-prompt --tool=vimdiff $argv
 end
 
-function gmum
+function gmum -w git
     git merge upstream/master $argv
 end
 
-function gp
+function gp -w git
     git push $argv
 end
 
-function gpd
+function gpd -w git
     git push --dry-run $argv
 end
 
-function gpoat
+function gpoat -w git
     git push origin --all; and git push origin --tags
 end
 
-function gpristine
+function gpristine -w git
     git reset --hard; and git clean -dfx
 end
 
-function gpsup
+function gpsup -w git
     git push --set-upstream origin (git_current_branch) $argv
 end
 
-function gpu
+function gpu -w git
     git push upstream $argv
 end
 
-function gpv
+function gpv -w git
     git push -v $argv
 end
 
-function gr
+function gr -w git
     git remote $argv
 end
 
-function gra
+function gra -w git
     git remote add $argv
 end
 
-function grb
+function grb -w git
     git rebase $argv
 end
 
-function grba
+function grba -w git
     git rebase --abort $argv
 end
 
-function grbc
+function grbc -w git
     git rebase --continue $argv
 end
 
-function grbi
+function grbi -w git
     git rebase -i $argv
 end
 
-function grbm
+function grbm -w git
     git rebase master $argv
 end
 
-function grbs
+function grbs -w git
     git rebase --skip $argv
 end
 
-function grep
+function grep -w git
     grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} $argv
 end
 
-function grh
+function grh -w git
     git reset HEAD $argv
 end
 
-function grhh
+function grhh -w git
     git reset HEAD --hard $argv
 end
 
-function grmv
+function grmv -w git
     git remote rename $argv
 end
 
-function grrm
+function grrm -w git
     git remote remove $argv
 end
 
-function grset
+function grset -w git
     git remote set-url $argv
 end
 
-function grt
+function grt -w git
     cd (git rev-parse --show-toplevel; echo ".")
 end
 
-function gru
+function gru -w git
     git reset -- $argv
 end
 
-function grup
+function grup -w git
     git remote update $argv
 end
 
-function grv
+function grv -w git
     git remote -v $argv
 end
-function gsb
+function gsb -w git
     git status -sb $argv
 end
 
-function gsd
+function gsd -w git
     git svn dcommit $argv
 end
 
-function gsi
+function gsi -w git
     git submodule init $argv
 end
 
-function gsps
+function gsps -w git
     git show --pretty=short --show-signature $argv
 end
 
-function gsr
+function gsr -w git
     git svn rebase $argv
 end
 
-function gss
+function gss -w git
     git status -s $argv
 end
-function gst
+function gst -w git
     git status $argv
 end
 
-function gsta
+function gsta -w git
     git stash save $argv
 end
 
-function gstaa
+function gstaa -w git
     git stash apply $argv
 end
 
-function gstc
+function gstc -w git
     git stash clear $argv
 end
 
-function gstd
+function gstd -w git
     git stash drop $argv
 end
 
-function gstl
+function gstl -w git
     git stash list $argv
 end
 
-function gstp
+function gstp -w git
     git stash pop $argv
 end
-function gsts
+function gsts -w git
     git stash show --text $argv
 end
 
-function gsu
+function gsu -w git
     git submodule update $argv
 end
 
-function gts
+function gts -w git
     git tag -s $argv
 end
 
-function gtv
+function gtv -w git
     git tag | sort -V $argv
 end
 
-function gunignore
+function gunignore -w git
     git update-index --no-assume-unchanged $argv
 end
-function gunwip
+function gunwip -w git
     git log -n 1 | grep -q -c "\-\-wip\-\-"; and git reset HEAD~1
 end
 
-function gup
+function gup -w git
     git pull --rebase $argv
 end
 
-function gupv
+function gupv -w git
     git pull --rebase -v $argv
 end
 
-function gwch
+function gwch -w git
     git whatchanged -p --abbrev-commit --pretty=medium $argv
 end
 
-function gwip
+function gwip -w git
     git add -A; git rm (git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"
 end
 
