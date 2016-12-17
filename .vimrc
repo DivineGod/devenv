@@ -145,10 +145,10 @@ let g:syntastic_mode_map = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set t_Co=256
 set termguicolors
-" set background=dark "or light
+" set background=light "or light
 let g:solarized_term_italics=1
-colorscheme solarized8_dark_high
-" let g:solarized_termtrans=1
+let g:solarized_termtrans=0
+colorscheme solarized8_dark_flat
 
 let &t_8f="\e[38;2;%ld;%ld;%ldm"
 let &t_8b="\e[48;2;%ld;%ld;%ldm"
