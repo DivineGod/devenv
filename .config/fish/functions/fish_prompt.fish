@@ -66,7 +66,7 @@ function fish_prompt
   set -l error (set_color -o red)
   set -l ok (set_color -o green)
   set -l info (set_color -o blue)
-  set -l comment $italic(set_color -o brblack)
+  set -l comment $italic(set_color -o brcyan)
   set -l normal (set_color normal)
 
   set -l status_color "$warn"
@@ -81,7 +81,7 @@ function fish_prompt
   set -l repo_type (_repo_type)
   if [ $repo_type ]
     set -l repo_branch (_repo_branch_name $repo_type)
-    set repo_info "$comment$dim$repo_type$normal $dim$repo_branch$normal"
+    set repo_info "$comment$dim$repo_branch$normal"
 
     set -l repo_status_color "$ok"
     set -l repo_status_symbol "◯"
