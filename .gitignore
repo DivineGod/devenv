@@ -3,6 +3,7 @@
 /.Trash
 /.bash_history
 /.cache
+/.cargo
 /.config/how-to-npm
 /.eslint_d
 /.gem
@@ -10,6 +11,7 @@
 /.lesshst
 /.license
 /.local
+/.multirust
 /.mysql_history
 /.node-gyp
 /.node_repl_history
@@ -22,6 +24,7 @@
 /.pm2
 /.py_envs
 /.rediscli_history
+/.rustup
 /.ssh
 /.subversion
 /.viminfo
