@@ -564,3 +564,5 @@ end
 set -g -x GOROOT /usr/local/go
 set -g -x GOPATH $HOME/code/go
 set -g -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin $HOME/bin $GOPATH/bin $HOME/.cargo/bin
+
+set -U fish_pager_color_prefix brblue --bold --underline
