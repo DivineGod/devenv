@@ -28,6 +28,7 @@
 /.ssh
 /.subversion
 /.viminfo
+/.yarnrc
 /.zsh_history
 /.zsh-update
 /.zcompdump*
