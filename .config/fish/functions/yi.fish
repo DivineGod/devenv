@@ -1,3 +1,3 @@
 function yi
-	yarn install
+	yarn install $argv
 end
