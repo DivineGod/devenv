@@ -145,7 +145,7 @@ let g:syntastic_mode_map = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set t_Co=256
 set termguicolors
-set background=light "or light
+set background=dark "or light
 " let g:solarized_term_italics=1
 " let g:solarized_termtrans=0
 " colorscheme solarized8_light_flat
