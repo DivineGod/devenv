@@ -9,6 +9,7 @@
 /.config/fnm
 /.config/fish/conf.d
 /.eslint_d
+/.exercism.json
 /.gem
 /.karabiner.d/log
 /.lesshst
