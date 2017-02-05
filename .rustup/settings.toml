@@ -4,3 +4,5 @@ telemetry = false
 version = "12"
 
 [overrides]
+"/Users/voidedgin/code/alacritty" = "stable-x86_64-apple-darwin"
+"/Users/voidedgin/code/sketches/rust/lol" = "nightly-x86_64-apple-darwin"
