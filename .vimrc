@@ -152,8 +152,9 @@ set background=dark "or light
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
-let &t_8f="\e[38;2;%ld;%ld;%ldm"
-let &t_8b="\e[48;2;%ld;%ld;%ldm"
+" True color support. Deprecated use 'set termguicolors'
+" let &t_8f="\e[38;2;%ld;%ld;%ldm"
+" let &t_8b="\e[48;2;%ld;%ld;%ldm"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
