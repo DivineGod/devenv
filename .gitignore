@@ -15,6 +15,7 @@
 /.karabiner.d/log
 /.lesshst
 /.license
+/.lldb
 /.local
 /.multirust
 /.mysql_history
