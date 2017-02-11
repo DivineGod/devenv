@@ -62,6 +62,7 @@ function fish_prompt
 
   set -l italic (echo -e "\e[3m")
   set -l dim (echo -e "\e[2m")
+  set -l bold (echo -e "\e[1m")
   set -l warn (set_color yellow)
   set -l error (set_color red)
   set -l ok (set_color green)
