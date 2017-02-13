@@ -569,5 +569,5 @@ set -U fish_pager_color_prefix brblue --bold --underline
 
 set -l GRUVBOX_SCRIPT ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
 if test -f $GRUVBOX_SCRIPT; and status --is-interactive
-  # bash $GRUVBOX_SCRIPT
+  bash $GRUVBOX_SCRIPT
 end
