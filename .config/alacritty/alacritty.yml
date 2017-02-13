@@ -19,21 +19,21 @@ draw_bold_text_with_bright_colors: false
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Menlo
+    family: Fira Code
     # Style can be specified to pick a specific face.
-    # style: Regular
+    # style: Light
 
   # The bold font face
   bold:
-    family: Menlo
+    family: Fira Code
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: Menlo
+    family: Fira Code
     # Style can be specified to pick a specific face.
-    # style: Italic
+    # style: Light Italic
 
   # Point size of the font
   size: 12.0
@@ -148,6 +148,32 @@ colors:
 #     cyan:    '0x93a1a1'
 #     white:   '0xfdf6e3'
 
+# Visual Bell
+#
+# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
+# rung, the terminal background will be set to white and transition back to the
+# default background color. You can control the rate of this transition by
+# setting the `duration` property (represented in milliseconds). You can also
+# configure the transition function by setting the `animation` property.
+#
+# Possible values for `animation`
+# `Ease`
+# `EaseOut`
+# `EaseOutSine`
+# `EaseOutQuad`
+# `EaseOutCubic`
+# `EaseOutQuart`
+# `EaseOutQuint`
+# `EaseOutExpo`
+# `EaseOutCirc`
+# `Linear`
+#
+# To completely disable the visual bell, set its duration to 0.
+#
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
@@ -181,10 +207,10 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
-  - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
-  - { key: Home,                    chars: "\x1b[1~",  mode: AppCursor   }
-  - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
-  - { key: End,                     chars: "\x1b[4~",  mode: AppCursor   }
+  - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Home,                    chars: "\x1b[1~",  mode: ~AppCursor  }
+  - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: End,                     chars: "\x1b[4~",  mode: ~AppCursor  }
   - { key: PageUp,                  chars: "\x1b[5~"                     }
   - { key: PageDown,                chars: "\x1b[6~"                     }
   - { key: Left,     mods: Shift,   chars: "\x1b[1;2D"                   }
@@ -221,6 +247,7 @@ key_bindings:
   - { key: F11,                     chars: "\x1b[23~"                    }
   - { key: F12,                     chars: "\x1b[24~"                    }
   - { key: Back,                    chars: "\x7f"                        }
+  - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~",  mode: AppKeypad   }
   - { key: Delete,                  chars: "\x1b[P",   mode: ~AppKeypad  }
 
@@ -241,6 +268,13 @@ key_bindings:
 # - Copy (TODO)
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 # Shell
 #
