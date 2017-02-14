@@ -13,5 +13,10 @@ Uses:
 * brew cask
 * nvm
 * iterm2 stuff
+* alacritty - experimentally so far. Very fast terminal emulator.
+
+### Brew installed formulae
+
+* homebrew/dupes/ncurses - provides updated terminfo
 
 ## Screenshots
