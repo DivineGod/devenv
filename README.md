@@ -18,5 +18,6 @@ Uses:
 ### Brew installed formulae
 
 * homebrew/dupes/ncurses - provides updated terminfo
+* Make sure vim is compiled from source after installing ncurses to get correct italics working
 
 ## Screenshots
