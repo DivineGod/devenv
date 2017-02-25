@@ -108,7 +108,7 @@ function fish_prompt
     set repo_info "$repo_details $repo_status"
   end
 
-  echo "$pwd $repo_info $normal"
+  echo "$pwd $repo_info$normal"
 
   set -l mode 'ᚦ'
   if test "$fish_key_bindings" = "fish_vi_key_bindings"
