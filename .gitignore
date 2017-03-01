@@ -8,6 +8,7 @@
 /.config/fisherman
 /.config/fnm
 /.config/fish/conf.d
+/.emscripten*
 /.eslint_d
 /.exercism.json
 /.gem
