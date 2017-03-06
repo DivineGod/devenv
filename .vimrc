@@ -149,7 +149,7 @@ set background=dark "or light
 " set background=light
 " let g:solarized_term_italics=1
 " let g:solarized_termtrans=0
-" colorscheme solarized8_light_flat
+" colorscheme solarized8_dark_flat
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
