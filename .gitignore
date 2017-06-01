@@ -4,6 +4,7 @@
 /.bash_history
 /.cache
 /.cargo
+/.config/configstore
 /.config/how-to-npm
 /.config/fisherman
 /.config/fnm
