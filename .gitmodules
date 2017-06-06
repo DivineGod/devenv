@@ -31,3 +31,6 @@
 [submodule ".vim/pack/default/start/vim-sleuth"]
 	path = .vim/pack/default/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
+[submodule ".vim/pack/default/start/ale"]
+	path = .vim/pack/default/start/ale
+	url = https://github.com/w0rp/ale.git
