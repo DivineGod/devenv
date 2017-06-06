@@ -28,3 +28,9 @@
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
+[submodule ".config/fisherman/bass"]
+	path = .config/fisherman/bass
+	url = https://github.com/edc/bass.git
+[submodule ".config/fisherman/nvm"]
+	path = .config/fisherman/nvm
+	url = https://github.com/fisherman/nvm.git
