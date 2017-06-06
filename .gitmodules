@@ -1,14 +1,14 @@
 [submodule ".vim/bundle/vim-css-color"]
-	path = .vim/bundle/vim-css-color
+	path = .vim/pack/default/start/vim-css-color
 	url = https://github.com/ap/vim-css-color.git
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
+	path = .vim/pack/default/start/vim-surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
+	path = .vim/pack/default/start/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
+	path = .vim/pack/default/start/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/bundle/dash.vim"]
 	path = .vim/bundle/dash.vim
