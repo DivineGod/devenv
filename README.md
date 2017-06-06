@@ -17,7 +17,11 @@ Uses:
 
 ### Brew installed formulae
 
-* homebrew/dupes/ncurses - provides updated terminfo
-* Make sure vim is compiled from source after installing ncurses to get correct italics working
+* ncurses - provides updated terminfo use `brew install ncurses; brew link ncurses --force`
+* Make sure vim is compiled from source after installing ncurses to get correct italics working. `brew install vim --with-override-system-vi`
+
+### VIM 8
+
+Vim 8 has a new package system so I have moved from using pathogen to using submodules in `.vim/pack/`
 
 ## Screenshots
