@@ -1,19 +1,16 @@
-[submodule ".vim/bundle/vim-css-color"]
+[submodule ".vim/pack/deafult/start/vim-css-color"]
 	path = .vim/pack/default/start/vim-css-color
 	url = https://github.com/ap/vim-css-color.git
-[submodule ".vim/bundle/vim-surround"]
+[submodule ".vim/pack/default/start/vim-surround"]
 	path = .vim/pack/default/start/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/vim-fugitive"]
+[submodule ".vim/pack/default/start/vim-fugitive"]
 	path = .vim/pack/default/start/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-unimpaired"]
+[submodule ".vim/pack/default/start/vim-unimpaired"]
 	path = .vim/pack/default/start/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/dash.vim"]
-	path = .vim/bundle/dash.vim
-	url = https://github.com/rizzatti/dash.vim.git
-[submodule ".vim/bundle/vim-repeat"]
+[submodule ".vim/pack/deafult/start/vim-repeat"]
 	path = .vim/pack/default/start/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule ".config/fisherman/bass"]
