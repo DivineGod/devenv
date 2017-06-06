@@ -14,7 +14,7 @@
 	path = .vim/bundle/dash.vim
 	url = https://github.com/rizzatti/dash.vim.git
 [submodule ".vim/bundle/vim-repeat"]
-	path = .vim/bundle/vim-repeat
+	path = .vim/pack/default/start/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule ".config/fisherman/bass"]
 	path = .config/fisherman/bass
@@ -25,3 +25,9 @@
 [submodule ".vim/pack/themes/opt/gruvbox"]
 	path = .vim/pack/themes/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule ".vim/pack/default/start/vim-polyglot"]
+	path = .vim/pack/default/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule ".vim/pack/default/start/vim-sleuth"]
+	path = .vim/pack/default/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
