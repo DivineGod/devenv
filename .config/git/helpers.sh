@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Inspired by @garybarnhardt
+#Inspired by @garybernhardt
 
 HASH="%C(yellow)%h%C(reset)" # %h (short hash)
 REL_TIME="%C(green)%ar%C(reset)" # %ar (author relative_time)
