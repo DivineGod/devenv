@@ -11,6 +11,7 @@
 [core]
 	excludesfile = /Users/voidedgin/.global_ignore
 	editor = vim
+	ignorecase = false
 [alias]
     st = status -sb
     c = commit
