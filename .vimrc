@@ -29,7 +29,7 @@ set cmdheight=1
 set switchbuf=useopen
 set showtabline=2
 set winwidth=79
-set shell=zsh
+set shell=fish
 " Show line numbers
 set number
 " Prevent Vim from clobbering the scrollback buffer. See
@@ -75,6 +75,7 @@ set nofoldenable
 set nojoinspaces
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
