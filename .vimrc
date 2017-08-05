@@ -319,3 +319,5 @@ augroup END
 hi Search cterm=underline
 hi IncSearch cterm=underline
 
+autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
+
