@@ -31,6 +31,7 @@ set showtabline=2
 set winwidth=79
 set shell=fish
 " Show line numbers
+set relativenumber
 set number
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
