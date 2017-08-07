@@ -34,6 +34,7 @@
 /.py_envs
 /.rediscli_history
 /.rustup
+/.ssb
 /.ssh
 /.subversion
 /.viminfo
