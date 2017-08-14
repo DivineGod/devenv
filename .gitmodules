@@ -31,3 +31,6 @@
 [submodule ".vim/pack/default/start/ale"]
 	path = .vim/pack/default/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule ".vim/pack/default/start/goyo.vim"]
+	path = .vim/pack/default/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
