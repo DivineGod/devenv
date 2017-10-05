@@ -49,3 +49,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/Users/divinegod/homebrew/bin:$PATH"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/anaconda/bin:$PATH"

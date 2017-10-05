@@ -561,6 +561,7 @@ function showfiles
     defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder
 end
 
+set -g -x PATH $PATH /anaconda/bin/
 set -g -x GOROOT /usr/local/go
 set -g -x GOPATH $HOME/code/go
 set -g -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin $HOME/bin $GOPATH/bin $HOME/.cargo/bin
@@ -572,3 +573,6 @@ set -l GRUVBOX_SCRIPT ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
 if test -f $GRUVBOX_SCRIPT; and status --is-interactive
   bash $GRUVBOX_SCRIPT
 end
+
+# OPAM configuration
+# . /Users/voidedgin/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
