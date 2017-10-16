@@ -4,6 +4,8 @@
 /.bash_history
 /.cache
 /.cargo
+/.config/binwalk
+/.config/radare2
 /.config/configstore
 /.config/how-to-npm
 /.config/fisherman
