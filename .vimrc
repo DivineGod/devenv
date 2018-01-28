@@ -91,33 +91,33 @@ augroup vimrcEX
   autocmd Filetype text setlocal textwidth=78
   " Jump to last cursor position unless it's invalid or in an event handler
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal g`\"" |
-      \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
-      autocmd! BufRead,BufNewFile *.coffee setfiletype coffee
+  autocmd! BufRead,BufNewFile *.coffee setfiletype coffee
 
-      autocmd! BufRead,BufNewFile *.sass setfiletype sass
+  autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
-      autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
-      autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 
-      " Indent p tags
-      " autocmd FileType html,eruby if g:html_indent_tags !~ " '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | " endif
+  " Indent p tags
+  " autocmd FileType html,eruby if g:html_indent_tags !~ " '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | " endif
 
-      " Don't syntax highlight markdown because it's often wrong
-      autocmd! FileType mkd setlocal syn=off
+  " Don't syntax highlight markdown because it's often wrong
+  autocmd! FileType mkd setlocal syn=off
 
-      " Leave the return key alone when in command line " windows, since it's used
-      " to run commands there.
-      autocmd! CmdwinEnter * :unmap <cr>
-      autocmd! CmdwinLeave * :call MapCR()
+  " Leave the return key alone when in command line " windows, since it's used
+  " to run commands there.
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
 
-      " *.md is markdown
-      autocmd! BufNewFile,BufRead *.md setlocal ft=
+  " *.md is markdown
+  autocmd! BufNewFile,BufRead *.md setlocal ft=
 
-      " indent slim two spaces, not four
-      autocmd! FileType *.slim set sw=2 sts=2 et
+  " indent slim two spaces, not four
+  autocmd! FileType *.slim set sw=2 sts=2 et
 augroup END
 
 
@@ -130,9 +130,9 @@ augroup END
 " let g:syntastic_enable_signs=0
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_mode_map = {
-  \ "mode": "passive",
-  \ "active_filetypes": [],
-  \ "passive_filetypes": [] }
+      \ "mode": "passive",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": [] }
 "map ]l :lnext<Enter>
 "map [l :lprev<Enter>
 " let g:neomake_javascript_enabled_makers = ['eslint']
@@ -320,3 +320,11 @@ hi IncSearch cterm=underline
 
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
+
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+    \ 'whitelist': ['rust'],
+    \ })
+endif

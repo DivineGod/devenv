@@ -12,6 +12,8 @@
 /.config/fnm
 /.config/fish/conf.d
 /.config/yarn
+/.docker
+/.jupyter
 /.eaglerc
 /.emscripten*
 /.eslint_d
@@ -48,9 +50,13 @@
 /.subversion
 /.viminfo
 /.yarnrc
+/.zenmap
 /.zsh_history
 /.zsh-update
 /.zcompdump*
+/anaconda3
+/dumps
+/esp
 /keybase
 /robomongo
 /Fritzing

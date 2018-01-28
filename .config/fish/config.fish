@@ -564,8 +564,12 @@ end
 set -g -x PATH $PATH /anaconda/bin/
 set -g -x GOROOT /usr/local/go
 set -g -x GOPATH $HOME/code/go
-set -g -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin $HOME/bin $GOPATH/bin $HOME/.cargo/bin
+set -g -x PATH $PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /usr/local/go/bin $HOME/bin $GOPATH/bin $HOME/.cargo/bin $HOME/esp/xtensa-esp32-elf/bin
 set -g -x PATH $PATH /Users/voidedgin/code/emsdk /Users/voidedgin/code/emsdk/clang/fastcomp/build_incoming_64/bin /Users/voidedgin/code/emsdk/node/4.1.1_64bit/bin /Users/voidedgin/code/emsdk/emscripten/incoming /Users/voidedgin/code/emsdk/binaryen/master
+set -g -x DYLD_LIBRARY_PATH /usr/local/opt/capstone/lib/ $DYLD_LIBRARY_PATH
+set -g -x RUST_SRC_PATH /Users/voidedgin/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
+set -g -x IDF_PATH $HOME/esp/esp-idf
 
 set -U fish_pager_color_prefix brblue --bold --underline
 

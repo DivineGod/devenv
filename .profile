@@ -52,3 +52,6 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 # added by Anaconda3 4.4.0 installer
 export PATH="/anaconda/bin:$PATH"
+
+# added by Anaconda3 5.0.1 installer
+export PATH="/Users/voidedgin/anaconda3/bin:$PATH"
