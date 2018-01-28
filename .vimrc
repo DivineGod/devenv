@@ -320,6 +320,8 @@ hi IncSearch cterm=underline
 
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
+" let g:ale_linters = {'rust': ['rls']}
+
 
 if executable('rls')
   au User lsp_setup call lsp#register_server({
@@ -328,3 +330,13 @@ if executable('rls')
     \ 'whitelist': ['rust'],
     \ })
 endif
+
+
+" Put these lines at the very end of your vimrc file.
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
