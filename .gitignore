@@ -22,7 +22,8 @@
 /.hyper.js
 /.ipython
 /.jssc
-/.karabiner.d/log
+/.karabiner.d
+/.kodi
 /.lesshst
 /.license
 /.lldb
@@ -49,6 +50,7 @@
 /.ssh
 /.subversion
 /.viminfo
+/.vscode
 /.yarnrc
 /.zenmap
 /.zsh_history

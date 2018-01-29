@@ -1,1 +1,1 @@
-/Users/voidedgin/.config/fisherman/nvm/npm.fish
+/Users/voidedgin/.config/fisherman/nvm/functions/npm.fish

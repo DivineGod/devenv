@@ -1,0 +1,1 @@
+/Users/voidedgin/.config/fisherman/nvm/functions/npx.fish
