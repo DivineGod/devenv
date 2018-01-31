@@ -195,6 +195,8 @@ map H :bprevious<Enter>
 "map \\ :w<Enter>:!!<Enter>
 map <space> :w<Enter>:!!<Enter>
 
+let g:rustfmt_autosave = 1
+
 " Do not move cursor on *
 map * *N
 
