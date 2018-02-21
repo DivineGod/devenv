@@ -12,6 +12,7 @@
 /.config/fnm
 /.config/fish/conf.d
 /.config/yarn
+/.config/wireshark
 /.docker
 /.jupyter
 /.eaglerc
