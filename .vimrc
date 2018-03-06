@@ -323,6 +323,9 @@ hi IncSearch cterm=underline
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
 " let g:ale_linters = {'rust': ['rls']}
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = 'prettier'
+let g:ale_fix_on_save = 1
 
 
 if executable('rls')
