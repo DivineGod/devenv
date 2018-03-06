@@ -16,6 +16,7 @@
 /.docker
 /.jupyter
 /.eaglerc
+/.electron
 /.emscripten*
 /.eslint_d
 /.exercism.json
