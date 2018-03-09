@@ -282,10 +282,9 @@ function! SelectaFile(path)
   call SelectaCommand("find " . a:path . "/* -type f", "", ":e")
 endfunction
 
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaFile(".")<cr>
-nnoremap <leader>ga :call SelectaFile("apps")<cr>
+function! SelectaGitRepo(path)
+  call SelectaCommand("git ls-files -oc --exclude-standard " . a:path . " 2>/dev/null", "", ":e")
+endfunction
 
 function! SelectaBuffer()
   let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
@@ -293,6 +292,11 @@ function! SelectaBuffer()
   call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
 endfunction
 
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaFile(".")<cr>
+" Fuzzy select from git repo excluding .gitignore'd items
+nnoremap <leader>g :call SelectaGitRepo(".")<cr>
 " Fuzzy select a buffer. Open the selected buffer with :b.
 nnoremap <leader>b :call SelectaBuffer()<cr>
 
