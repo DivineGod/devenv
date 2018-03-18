@@ -53,6 +53,7 @@
 /.subversion
 /.viminfo
 /.vscode
+/.xargo
 /.yarnrc
 /.zenmap
 /.zsh_history
