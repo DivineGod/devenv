@@ -36,7 +36,7 @@ function branch_stats() {
 function pull_push() {
    git checkout master;
    git pull upstream master;
-   git push origin master;
+   git push origin master --no-verify;
    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
    git fetch -p;
 }
