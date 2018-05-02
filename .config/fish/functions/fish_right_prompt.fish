@@ -51,14 +51,6 @@ function fish_right_prompt
     end
   end
 
-  if not set -q -g __fish_prompt_functions_defined
-    set -g __fish_prompt_functions_defined
-
-    function _status_okay
-      [ $argv[1] = 0 ]
-    end
-  end
-
   set -l italic (echo -e "\e[3m")
   set -l dim (echo -e "\e[2m")
   set -l bold (echo -e "\e[1m")
