@@ -1,57 +1,6 @@
 function fish_prompt
   set -l last_status $status
 
-  if not set -q -g __fish_repo_functions_defined
-    set -g __fish_repo_functions_defined
-
-    function _git_branch_name
-      echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
-    end
-
-    function _is_git_dirty
-      set -l _git_state (git status -s --ignore-submodules=dirty ^/dev/null)
-      [ "$_git_state" != "" ]
-    end
-
-    function _is_git_ahead
-      set -l revs (git rev-list origin/(_git_branch_name)..HEAD ^/dev/null)
-      [ "$revs" != "" ]
-    end
-
-    function _is_git_behind
-      set -l revs (git rev-list HEAD..origin/(_git_branch_name) ^/dev/null)
-      [ "$revs" != "" ]
-    end
-
-    function _is_git_repo
-      type -q git; or return 1
-      git check-ignore -q . >/dev/null ^/dev/null
-      [ $status != 0 ]; and git status -s >/dev/null ^/dev/null
-    end
-
-    function _repo_branch_name
-      eval "_$argv[1]_branch_name"
-    end
-
-    function _is_repo_dirty
-      eval "_is_$argv[1]_dirty"
-    end
-
-    function _is_repo_ahead
-      eval "_is_$argv[1]_ahead"
-    end
-
-    function _is_repo_behind
-      eval "_is_$argv[1]_behind"
-    end
-
-    function _repo_type
-      if _is_git_repo
-        echo 'git'
-      end
-    end
-  end
-
   if not set -q -g __fish_prompt_functions_defined
     set -g __fish_prompt_functions_defined
 
