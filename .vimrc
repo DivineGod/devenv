@@ -143,6 +143,7 @@ let g:syntastic_mode_map = {
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set t_Co=256
+let &t_ut='' " Background Colour Erase (bce) is not supported in some terminals
 set termguicolors
 set background=light "or dark
 " set background=light
