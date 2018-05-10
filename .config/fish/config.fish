@@ -22,10 +22,6 @@ function d
     dirs -v | head -10
 end
 
-function git -w hub
-	command hub $argv
-end
-
 function g -w git
     git $argv
 end
