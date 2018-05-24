@@ -145,7 +145,7 @@ let g:syntastic_mode_map = {
 " set t_Co=256
 let &t_ut='' " Background Colour Erase (bce) is not supported in some terminals
 set termguicolors
-set background=light "or dark
+set background=dark "or light
 " set background=light
 " let g:solarized_term_italics=1
 " let g:solarized_termtrans=0
