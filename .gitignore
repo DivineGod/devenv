@@ -13,6 +13,7 @@
 /.config/fish/conf.d
 /.config/yarn
 /.config/wireshark
+/.crates
 /.docker
 /.jupyter
 /.eaglerc
@@ -59,6 +60,7 @@
 /.zsh_history
 /.zsh-update
 /.zcompdump*
+/.zoomus
 /anaconda3
 /dumps
 /esp
@@ -83,3 +85,4 @@
 /Work
 /Creative Cloud Files
 /Google Drive
+/talks
