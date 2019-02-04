@@ -55,6 +55,7 @@
 /.ssh
 /.subversion
 /.thumbnails
+/.vimdid
 /.viminfo
 /.vscode
 /.xargo

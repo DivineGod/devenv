@@ -22,6 +22,7 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
+
 " Case-insensitive searching; case-sensitive if they contains capital letter
 set ignorecase smartcase
 set cursorline
@@ -30,28 +31,40 @@ set switchbuf=useopen
 set showtabline=2
 set winwidth=79
 set shell=fish
+
 " Show line numbers
 set relativenumber
 set number
+
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti= t_te=
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
+
 "Don't use swp files
 set nobackup
 set nowritebackup
 set noswapfile
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
 " display incomplete commands
 set showcmd
+
 " Enabled syntax highlighting
 syntax on
+
 " Enable file type detection
 filetype plugin indent on
+
 "http://stackoverflow.com/questions/526858/
 " set emacs-style tab completing when selecting files, etc
 "Make vim do normal bash like tab completion for file names
