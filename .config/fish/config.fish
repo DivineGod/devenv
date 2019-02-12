@@ -557,6 +557,8 @@ function showfiles
     defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder
 end
 
+set -g -x TERM xterm-256-italic
+
 set -g -x PATH $PATH /anaconda/bin/
 set -g -x GOROOT /usr/local/go
 set -g -x GOPATH $HOME/code/go

@@ -39,10 +39,11 @@ set number
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti= t_te=
-" keep more context when scrolling off the end of a buffer
+
+" Keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
-"Don't use swp files
+" Don't use swp files
 set nobackup
 set nowritebackup
 set noswapfile
@@ -112,14 +113,8 @@ augroup vimrcEX
 
   autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
-  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
-  autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
-
   " Indent p tags
   " autocmd FileType html,eruby if g:html_indent_tags !~ " '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | " endif
-
-  " Don't syntax highlight markdown because it's often wrong
-  autocmd! FileType mkd setlocal syn=off
 
   " Leave the return key alone when in command line " windows, since it's used
   " to run commands there.
@@ -155,20 +150,13 @@ let g:syntastic_mode_map = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set t_Co=256
-let &t_ut='' " Background Colour Erase (bce) is not supported in some terminals
+
 set termguicolors
-set background=dark "or light
-" set background=light
-" let g:solarized_term_italics=1
-" let g:solarized_termtrans=0
-" colorscheme solarized8_dark_flat
+
+set background=dark " or: set background=light
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
-" True color support. Deprecated use 'set termguicolors'
-" let &t_8f="\e[38;2;%ld;%ld;%ldm"
-" let &t_8b="\e[48;2;%ld;%ld;%ldm"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -205,8 +193,6 @@ map H :bprevious<Enter>
 "noremap [ :bprevious<Enter>
 
 " Save file and run previous terminal command
-"map \ :w<Enter>:!!<Enter>
-"map \\ :w<Enter>:!!<Enter>
 map <space> :w<Enter>:!!<Enter>
 
 let g:rustfmt_autosave = 1
@@ -250,9 +236,6 @@ au Filetype cpp setl sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.erb set sw=2 sts=2 et
 autocmd BufRead,BufNewFile *.ml set sw=2 sts=2 et
 
-" Don't syntax highlight markdown because it's often wrong
-autocmd! FileType mkd setlocal syn=off
-
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -273,6 +256,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 "80-character guide line
 " set colorcolumn=80
+
 
 " SELECTA
 
