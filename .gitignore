@@ -2,6 +2,7 @@
 /.CFUserTextEncoding
 /.Trash
 /.bash_history
+/.bundle
 /.cache
 /.cargo
 /.config/binwalk
@@ -56,6 +57,7 @@
 /.subversion
 /.thumbnails
 /.tmux/
+/.vim/view
 /.vimdid
 /.viminfo
 /.vscode
