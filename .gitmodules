@@ -43,12 +43,6 @@
 [submodule ".vim/pack/bundles/start/vim-lsp"]
 	path = home/.vim/pack/bundles/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
-[submodule ".vim/pack/bundles/start/asyncomplete.vim"]
-	path = home/.vim/pack/bundles/start/asyncomplete.vim
-	url = https://github.com/prabirshrestha/asyncomplete.vim
-[submodule ".vim/pack/bundles/start/asyncomplete-lsp.vim"]
-	path = home/.vim/pack/bundles/start/asyncomplete-lsp.vim
-	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
 [submodule ".vim/pack/bundles/start/rust.vim"]
 	path = home/.vim/pack/bundles/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
