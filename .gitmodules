@@ -1,17 +1,17 @@
 [submodule ".vim/pack/deafult/start/vim-css-color"]
-	path = .vim/pack/default/start/vim-css-color
+	path = home/.vim/pack/default/start/vim-css-color
 	url = https://github.com/ap/vim-css-color.git
 [submodule ".vim/pack/default/start/vim-surround"]
-	path = .vim/pack/default/start/vim-surround
+	path = home/.vim/pack/default/start/vim-surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/default/start/vim-fugitive"]
-	path = .vim/pack/default/start/vim-fugitive
+	path = home/.vim/pack/default/start/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/pack/default/start/vim-unimpaired"]
-	path = .vim/pack/default/start/vim-unimpaired
+	path = home/.vim/pack/default/start/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/pack/deafult/start/vim-repeat"]
-	path = .vim/pack/default/start/vim-repeat
+	path = home/.vim/pack/default/start/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule ".config/fisherman/bass"]
 	path = .config/fisherman/bass
@@ -20,41 +20,41 @@
 	path = .config/fisherman/nvm
 	url = https://github.com/fisherman/nvm.git
 [submodule ".vim/pack/themes/opt/gruvbox"]
-	path = .vim/pack/themes/opt/gruvbox
+	path = home/.vim/pack/themes/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
 [submodule ".vim/pack/default/start/vim-polyglot"]
-	path = .vim/pack/default/start/vim-polyglot
+	path = home/.vim/pack/default/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
 [submodule ".vim/pack/default/start/vim-sleuth"]
-	path = .vim/pack/default/start/vim-sleuth
+	path = home/.vim/pack/default/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
 [submodule ".vim/pack/default/start/ale"]
-	path = .vim/pack/default/start/ale
+	path = home/.vim/pack/default/start/ale
 	url = https://github.com/w0rp/ale.git
 [submodule ".vim/pack/default/start/goyo.vim"]
-	path = .vim/pack/default/start/goyo.vim
+	path = home/.vim/pack/default/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule ".vim/pack/default/start/limelight.vim"]
-	path = .vim/pack/default/start/limelight.vim
+	path = home/.vim/pack/default/start/limelight.vim
 	url = https://github.com/junegunn/limelight.vim.git
 [submodule ".vim/pack/bundles/start/async.vim"]
-	path = .vim/pack/bundles/start/async.vim
+	path = home/.vim/pack/bundles/start/async.vim
 	url = https://github.com/prabirshrestha/async.vim
 [submodule ".vim/pack/bundles/start/vim-lsp"]
-	path = .vim/pack/bundles/start/vim-lsp
+	path = home/.vim/pack/bundles/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
 [submodule ".vim/pack/bundles/start/asyncomplete.vim"]
-	path = .vim/pack/bundles/start/asyncomplete.vim
+	path = home/.vim/pack/bundles/start/asyncomplete.vim
 	url = https://github.com/prabirshrestha/asyncomplete.vim
 [submodule ".vim/pack/bundles/start/asyncomplete-lsp.vim"]
-	path = .vim/pack/bundles/start/asyncomplete-lsp.vim
+	path = home/.vim/pack/bundles/start/asyncomplete-lsp.vim
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
 [submodule ".vim/pack/bundles/start/rust.vim"]
-	path = .vim/pack/bundles/start/rust.vim
+	path = home/.vim/pack/bundles/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
 [submodule ".vim/pack/default/start/vim-rooter"]
 	path = .vim/pack/default/start/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
 [submodule ".vim/pack/default/start/ron.vim"]
-	path = .vim/pack/default/start/ron.vim
+	path = home/.vim/pack/default/start/ron.vim
 	url = git@github.com:ron-rs/ron.vim.git
