@@ -216,7 +216,6 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
-
 " Keep selection after changing indent (using > and <)
 vmap > >gv
 vmap < <gv
