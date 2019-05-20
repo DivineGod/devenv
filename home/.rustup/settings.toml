@@ -1,7 +1,7 @@
 default_host_triple = "x86_64-apple-darwin"
 default_toolchain = "stable-x86_64-apple-darwin"
-telemetry = false
 version = "12"
 
 [overrides]
+"/Users/voidedgin/Projects/wishlist/server" = "nightly-x86_64-apple-darwin"
 "/Users/voidedgin/code/sketches/rust/lol" = "nightly-x86_64-apple-darwin"
