@@ -52,3 +52,6 @@
 [submodule ".vim/pack/default/start/ron.vim"]
 	path = home/.vim/pack/default/start/ron.vim
 	url = git@github.com:ron-rs/ron.vim.git
+[submodule "home/.vim/pack/default/start/vim-rooter"]
+	path = home/.vim/pack/default/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
