@@ -324,8 +324,6 @@ hi IncSearch cterm=underline
 
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
-autocmd! BufNewFile,BufRead *.svelte set filetype=html
-
 " let g:ale_linters = {'rust': ['rls']}
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = 'prettier'
