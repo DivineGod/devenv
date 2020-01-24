@@ -109,13 +109,6 @@ augroup vimrcEX
         \   exe "normal g`\"" |
         \ endif
 
-  autocmd! BufRead,BufNewFile *.coffee setfiletype coffee
-
-  autocmd! BufRead,BufNewFile *.sass setfiletype sass
-
-  " Indent p tags
-  " autocmd FileType html,eruby if g:html_indent_tags !~ " '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | " endif
-
   " Leave the return key alone when in command line " windows, since it's used
   " to run commands there.
   autocmd! CmdwinEnter * :unmap <cr>
@@ -123,9 +116,6 @@ augroup vimrcEX
 
   " *.md is markdown
   autocmd! BufNewFile,BufRead *.md setlocal ft=
-
-  " indent slim two spaces, not four
-  autocmd! FileType *.slim set sw=2 sts=2 et
 augroup END
 
 
