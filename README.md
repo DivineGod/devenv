@@ -6,8 +6,6 @@ Setup new system:
 make install
 ```
 
-```
-
 ## Stuff it does
 
 Uses:
