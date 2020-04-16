@@ -1,31 +1,25 @@
 # divinegod dotfiles
 
-Use homeshick to setup:
+Setup new system:
 
-```bash
-homeshick clone <url>
+```
+make install
+```
+
 ```
 
 ## Stuff it does
 
 Uses:
 
-* oh_my_zsh in zsh
 * fish
 * vim
 * brew
-* brew cask
-* nvm
-* iterm2 stuff
-* alacritty - experimentally so far. Very fast terminal emulator.
+* alacritty
+* tmux
 
-### Brew installed formulae
+## Config
 
-* ncurses - provides updated terminfo use `brew install ncurses; brew link ncurses --force`
-* Make sure vim is compiled from source after installing ncurses to get correct italics working. `brew install vim --with-override-system-vi`
-
-### VIM 8
-
-Vim 8 has a new package system so I have moved from using pathogen to using submodules in `.vim/pack/`
-
-## Screenshots
+Add new folder for each package config.
+Update Makefile with new `stow <package>` command.
+Stow will symlink into the parent directory so make sure .dotfiles is located in `~/`

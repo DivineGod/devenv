@@ -1,1 +1,0 @@
-/Users/voidedgin/.config/fisherman/nvm/__nvm_can_run.fish
