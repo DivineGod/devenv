@@ -4,16 +4,18 @@
 " Load plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
 Plug 'morhetz/gruvbox'
 
 call plug#end()
+
 
 autocmd!
 
@@ -276,21 +278,6 @@ hi Search cterm=underline
 hi IncSearch cterm=underline
 
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
-
-" let g:ale_linters = {'rust': ['rls']}
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = 'prettier'
-let g:ale_fix_on_save = 1
-
-
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'rls',
-    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-    \ 'whitelist': ['rust'],
-    \ })
-endif
-
 
 " Put these lines at the very end of your vimrc file.
 
