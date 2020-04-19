@@ -1,3 +1,6 @@
+" This is dg's .vimrc file
+" vim:set ts=2 sts=2 sw=2 expandtab:
+
 " Load plug
 call plug#begin('~/.vim/bundle')
 
@@ -11,12 +14,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
-
-" Load plugins
-filetype plugin indent on
-"
-" This is dg's .vimrc file
-" vim:set ts=2 sts=2 sw=2 expandtab:
 
 autocmd!
 
@@ -53,6 +50,10 @@ set shell=fish
 set relativenumber
 set number
 
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+" set t_ti= t_te=
+
 " Keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
@@ -66,6 +67,71 @@ set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 " Permanent undo
 set undodir=~/.vimdid
 set undofile
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" display incomplete commands
+set showcmd
+
+" Enabled syntax highlighting
+syntax on
+
+" Enable file type detection
+filetype plugin indent on
+
+"http://stackoverflow.com/questions/526858/
+" set emacs-style tab completing when selecting files, etc
+"Make vim do normal bash like tab completion for file names
+"set wildmode=longest,list,full
+set wildmode=longest,list,full
+set wildmenu
+let mapleader=","
+" Fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
+" Normally, Vim messes with iskeyword when you open a shell file. This can
+" leak out, polluting other file types even after a 'set ft=' change. This
+" variable prevents the iskeyword change so it can't hurt anyone.
+let g:sh_noisk=1
+" Modelines (comments that set vim options on a per-file basis)
+set modeline
+set modelines=3
+" Turn folding off for real, hopefully
+set foldmethod=manual
+set nofoldenable
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM AUTOCMDS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
+augroup vimrcEX
+  "Clear all autocmds in the group
+  autocmd!
+  autocmd Filetype text setlocal textwidth=78
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
+
+  " Leave the return key alone when in command line " windows, since it's used
+  " to run commands there.
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
+
+  " *.md is markdown
+  autocmd! BufNewFile,BufRead *.md setlocal ft=
+augroup END
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
@@ -177,6 +243,50 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "80-character guide line
 " set colorcolumn=80
 
+
+" SELECTA
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+" Needs selecta (brew install selecta)
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+function! SelectaFile(path)
+  call SelectaCommand("find " . a:path . "/* -type f", "", ":e")
+endfunction
+
+function! SelectaGitRepo(path)
+  call SelectaCommand("git ls-files -oc --exclude-standard " . a:path . " 2>/dev/null", "", ":e")
+endfunction
+
+function! SelectaBuffer()
+  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+  let buffers = map(bufnrs, 'bufname(v:val)')
+  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaFile(".")<cr>
+" Fuzzy select from git repo excluding .gitignore'd items
+nnoremap <leader>g :call SelectaGitRepo(".")<cr>
+" Fuzzy select a buffer. Open the selected buffer with :b.
+nnoremap <leader>b :call SelectaBuffer()<cr>
+
+" http://stackoverflow.com/questions/9850360/what-is-netrwhist
+let g:netrw_dirhistmax = 0
+
 " Auto source .vimrc on save
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost init.vim source %
@@ -198,6 +308,23 @@ augroup END
 hi Search cterm=underline
 hi IncSearch cterm=underline
 
+autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
+
+" let g:ale_linters = {'rust': ['rls']}
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = 'prettier'
+let g:ale_fix_on_save = 1
+
+
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+    \ 'whitelist': ['rust'],
+    \ })
+endif
+
+
 " Put these lines at the very end of your vimrc file.
 
 " Load all plugins now.
@@ -206,9 +333,3 @@ packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
-
-" Enabled syntax highlighting
-syntax on
-
-" Enable file type detection
-filetype plugin indent on

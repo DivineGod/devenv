@@ -33,6 +33,13 @@ function branch_stats() {
     less -FXRS
 }
 
+function pull_push_origin() {
+   git checkout master
+   git pull origin master
+   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+   git fetch -p;
+}
+
 function pull_push() {
    git checkout master;
    git pull upstream master;
