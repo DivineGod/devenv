@@ -243,47 +243,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "80-character guide line
 " set colorcolumn=80
 
-
-" SELECTA
-
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-" Needs selecta (brew install selecta)
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
-function! SelectaFile(path)
-  call SelectaCommand("find " . a:path . "/* -type f", "", ":e")
-endfunction
-
-function! SelectaGitRepo(path)
-  call SelectaCommand("git ls-files -oc --exclude-standard " . a:path . " 2>/dev/null", "", ":e")
-endfunction
-
-function! SelectaBuffer()
-  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
-  let buffers = map(bufnrs, 'bufname(v:val)')
-  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
-endfunction
-
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaFile(".")<cr>
-" Fuzzy select from git repo excluding .gitignore'd items
-nnoremap <leader>g :call SelectaGitRepo(".")<cr>
-" Fuzzy select a buffer. Open the selected buffer with :b.
-nnoremap <leader>b :call SelectaBuffer()<cr>
-
 " http://stackoverflow.com/questions/9850360/what-is-netrwhist
 let g:netrw_dirhistmax = 0
 
