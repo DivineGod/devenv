@@ -20,7 +20,7 @@ autocmd!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basic config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
+" set nocomtatible
 " When switching buffers, hide them (instead of abandoning)
 set hidden
 " remember more commands and history
@@ -239,6 +239,14 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " This will not preserve the cursor position
 " autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call selecta#SelectaFile(".")<cr>
+" Fuzzy select from git repo excluding .gitignore'd items
+nnoremap <leader>g :call selecta#SelectaGitRepo(".")<cr>
+" Fuzzy select a buffer. Open the selected buffer with :b.
+nnoremap <leader>b :call selecta#SelectaBuffer()<cr>
 
 "80-character guide line
 " set colorcolumn=80
