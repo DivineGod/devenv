@@ -57,3 +57,5 @@
     required = true
 [pull]
 	rebase = true
+[init]
+	templateDir = /Users/aras/.config/git/template
