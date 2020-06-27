@@ -150,16 +150,21 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This setup is a bit special. Only `set termguicolors` should be needed, but
+" macOS vim doesn't understand alacritty terminfo properly so it messes the
+" colours up.
+" brew vim replacement also doesn't understand alacritty terminfo so we have
+" to handle that even more.
 
 " let &t_ut='' " Background Colour Erase (bce) is not supported in some terminals
 set termguicolors
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" let g:gruvbox_termcolors=16
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " for brew vim
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " for brew vim
+" let g:gruvbox_termcolors=16 " for macOS vim
 set background=light " or: set background=dark
-" let g:gruvbox_italic=1
-" colorscheme dim
+let g:gruvbox_italic=1
+" colorscheme dim " For macOS vim - colour are a lot off if using gruvbox light
 colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
