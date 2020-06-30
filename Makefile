@@ -11,6 +11,7 @@ stow:
 	stow alacritty
 	stow vim
 	stow tmux
+	stow bat
 
 install:
 ifndef CLI_TOOLS
