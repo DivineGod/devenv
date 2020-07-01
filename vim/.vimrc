@@ -154,6 +154,8 @@ augroup END
 set background=light
 colorscheme solarized
 
+highlight Comment cterm=italic
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
