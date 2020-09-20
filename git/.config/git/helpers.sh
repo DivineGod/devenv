@@ -34,25 +34,28 @@ function branch_stats() {
 }
 
 function pull_push_origin() {
-   git checkout master
-   git pull origin master
-   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
-   git fetch -p;
+    branch=$([ -z $1 ] && echo "master" || echo "$1" )
+    git checkout $branch
+    git pull origin $branch
+    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+    git fetch -p;
 }
 
 function pull_push() {
-   git checkout master;
-   git pull upstream master;
-   git push origin master --no-verify;
-   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
-   git fetch -p;
+    branch=$([ -z $1 ] && echo "master" || echo "$1" )
+    git checkout $branch;
+    git pull upstream $branch;
+    git push origin $branch --no-verify;
+    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+    git fetch -p;
 }
 
 function pull_npm_push() {
-   git checkout master;
-   git pull upstream master;
-   npm i; # make sure any added packages are available for the pre-push test
-   git push origin master;
-   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
-   git fetch -p;
+    branch=$([ -z $1 ] && echo "master" || echo "$1" )
+    git checkout $branch;
+    git pull upstream $branch;
+    npm i --no-save; # make sure any added packages are available for the pre-push test
+    git push origin $branch;
+    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+    git fetch -p;
 }

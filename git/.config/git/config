@@ -35,9 +35,9 @@
     bh = "!source ~/.config/git/helpers.sh && branch_stats"
 
     #close current merged branch
-    p = "!source ~/.config/git/helpers.sh && pull_push_origin"
-    pp = "!source ~/.config/git/helpers.sh && pull_push"
-    pnp = "!source ~/.config/git/helpers.sh && pull_npm_push"
+    p = "!source ~/.config/git/helpers.sh && pull_push_origin $1"
+    pp = "!source ~/.config/git/helpers.sh && pull_push $1"
+    pnp = "!source ~/.config/git/helpers.sh && pull_npm_push $1"
 
 [merge]
     branchdesc = true
