@@ -12,9 +12,15 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
+
+" Color Scheme Plugins
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/gruvbox-material'
 Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'lifepillar/vim-solarized8'
+
+" Doesn't quite work right with termguicolors so that section needs to be disabled if you want the OG.
+" Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -151,8 +157,15 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 set background=light
-colorscheme solarized
+colorscheme solarized8
 
 highlight Comment cterm=italic
 
