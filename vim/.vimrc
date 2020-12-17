@@ -12,6 +12,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
+" Plug 'dense-analysis/ale'
 
 " Color Scheme Plugins
 Plug 'morhetz/gruvbox'
@@ -24,6 +25,10 @@ Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
+" let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+" let g:ale_linters = {'rust': ['rustc', 'analyzer']}
+" let g:ale_fixers = {'rust': ['rustfmt']}
+" let g:ale_fixer_on_save = 1
 
 autocmd!
 
