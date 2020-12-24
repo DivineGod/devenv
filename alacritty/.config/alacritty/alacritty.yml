@@ -344,7 +344,7 @@ cursor:
     # Values for `blinking`:
     #   - Never: Prevent the cursor from ever blinking
     #   - Off: Disable blinking by default
-    #   - On: Enable blinking by default
+    #   - On: Enable blinking by default - disabled by ncurses programs
     #   - Always: Force the cursor to always blink
     blinking: Off
 
