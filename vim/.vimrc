@@ -15,9 +15,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-j
 " Plug 'dense-analysis/ale'
 
 " Color Scheme Plugins
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'jeffkreeftmeijer/vim-dim'
+" Plug 'morhetz/gruvbox'
+" Plug 'sainnhe/gruvbox-material'
+" Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'lifepillar/vim-solarized8'
 
 " Doesn't quite work right with termguicolors so that section needs to be disabled if you want the OG.
