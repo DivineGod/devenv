@@ -5,8 +5,9 @@
 call plug#begin('~/.vim/bundle')
 
 Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
-Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-rooter'
+Plug 'srstevenson/vim-picker'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
@@ -284,11 +285,15 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call selecta#SelectaFile(".")<cr>
+" nnoremap <leader>f :call selecta#SelectaFile(".")<cr>
 " Fuzzy select from git repo excluding .gitignore'd items
-nnoremap <leader>g :call selecta#SelectaGitRepo(".")<cr>
+" nnoremap <leader>g :call selecta#SelectaGitRepo(".")<cr>
 " Fuzzy select a buffer. Open the selected buffer with :b.
-nnoremap <leader>b :call selecta#SelectaBuffer()<cr>
+" nnoremap <leader>b :call selecta#SelectaBuffer()<cr>
+
+nmap <leader>f :call picker#File('find . -type f', 'edit')<CR>
+nmap <leader>g <Plug>(PickerEdit)
+nmap <leader>b <Plug>(PickerBuffer)
 
 "80-character guide line
 " set colorcolumn=80
