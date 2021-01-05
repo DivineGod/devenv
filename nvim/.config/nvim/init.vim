@@ -1,8 +1,8 @@
-" This is dg's .vimrc file
+" This is dg's nvim init.vim file
 " vim:set ts=2 sts=2 sw=2 expandtab:
 
 " Load plug
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.nvim/plugged')
 
 Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
 Plug 'airblade/vim-rooter'
@@ -12,7 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-rust-analyzer coc-prettier
 " Plug 'dense-analysis/ale'
 
 " Color Scheme Plugins
@@ -60,7 +60,7 @@ set cmdheight=2
 set switchbuf=useopen
 set showtabline=2
 set winwidth=79
-set shell=fish
+" set shell=fish
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -88,11 +88,11 @@ set scrolloff=3
 set nobackup
 set nowritebackup
 set noswapfile
-set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.nvim-tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.nvim-tmp,~/tmp,/var/tmp,/tmp
 
 " Permanent undo
-set undodir=~/.vimdid
+set undodir=~/.nvimdid
 set undofile
 
 " allow backspacing over everything in insert mode
@@ -170,7 +170,7 @@ if exists('+termguicolors')
   set termguicolors
   let g:solarized_termtrans=0
 endif
-
+"
 set background=light
 colorscheme solarized8
 
@@ -179,7 +179,7 @@ highlight Comment cterm=italic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
@@ -302,7 +302,7 @@ nmap <leader>b <Plug>(PickerBuffer)
 let g:netrw_dirhistmax = 0
 
 " Auto source .vimrc on save
-autocmd! bufwritepost .vimrc source %
+" autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost init.vim source %
 
 " Create non-existing dir on save
@@ -324,11 +324,11 @@ hi IncSearch cterm=underline
 
 autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
-" Put these lines at the very end of your vimrc file.
-
-" Load all plugins now.
-" Plugins need to be added to runtimepath before helptags can be generated.
-packloadall
+" " Put these lines at the very end of your vimrc file.
+"
+" " Load all plugins now.
+" " Plugins need to be added to runtimepath before helptags can be generated.
+" packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL

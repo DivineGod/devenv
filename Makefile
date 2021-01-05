@@ -10,6 +10,7 @@ stow:
 	stow git
 	stow alacritty
 	stow vim
+	stow nvim
 	stow tmux
 	stow bat
 
