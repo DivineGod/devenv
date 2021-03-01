@@ -76,16 +76,12 @@ function _ando_fish_prompt --on-event fish_prompt
     ! command git --no-optional-locks rev-parse 2>/dev/null && set $_ando_git && exit
 
     set --global _ando_info_color \"\$_ando_ok\"
-    set --global _ando_upstream \"$ando_symbol_git_clean\"
+    set --global _ando_upstream $ando_symbol_git_clean
 
-    function _set_dirty
-        set --global _ando_info_color \"\$_ando_warn\"
-        set --global _ando_upstream $ando_symbol_git_dirty
-    end
 
     ! command git diff-index --quiet HEAD 2>/dev/null ||
         count (command git ls-files --others --exclude-standard) >/dev/null &&
-        _set_dirty
+        set --global _ando_info_color \"\$_ando_warn\"
 
     set branch (
         command git symbolic-ref --short HEAD 2>/dev/null ||
@@ -116,7 +112,6 @@ function _ando_fish_prompt --on-event fish_prompt
   " &
 
     set --global _ando_last_pid (jobs --last --pid)
-
 end
 
 function _ando_fish_exit --on-event fish_exit
@@ -130,8 +125,8 @@ function _ando_uninstall --on-event ando_uninstall
     functions --erase (functions --all | string match --entire --regex "^_?ando_")
 end
 
-set --query ando_symbol_git_clean || set --global ando_symbol_git_clean ◯
-set --query ando_symbol_git_dirty || set --global ando_symbol_git_dirty •
-set --query ando_symbol_git_ahead || set --global ando_symbol_git_ahead ↑
-set --query ando_symbol_git_ahead || set --global ando_symbol_git_behind ↓
-set --query ando_symbol_git_ahead || set --global ando_symbol_git_ahead_behind ⇅
+set --query ando_symbol_git_clean        || set --global ando_symbol_git_clean ◯
+set --query ando_symbol_git_dirty        || set --global ando_symbol_git_dirty •
+set --query ando_symbol_git_ahead        || set --global ando_symbol_git_ahead "↑"
+set --query ando_symbol_git_behind       || set --global ando_symbol_git_behind '↓'
+set --query ando_symbol_git_ahead_behind || set --global ando_symbol_git_ahead_behind "⇅"
