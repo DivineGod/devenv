@@ -3,50 +3,7 @@ status is-interactive || exit
 set --global _ando_git _ando_git_$fish_pid
 
 function $_ando_git --on-variable $_ando_git
-    commandline --function repaint
-end
-
-function _ando_git_fun
-    command kill $_ando_last_pid 2>/dev/null
-
-    fish --private --command "
-    ! command git --no-optional-locks rev-parse 2>/dev/null && set $_ando_git && exit
-
-    set info \"\$_ando_ok\"
-    set upstream \"$ando_symbol_git_clean\"
-
-    set branch (
-        command git symbolic-ref --short HEAD 2>/dev/null ||
-        command git describe --tags --exact-match HEAD 2>/dev/null ||
-        command git rev-parse --short HEAD 2>/dev/null |
-            string replace --regex -- '(.+)' '@\$1'
-    )
-
-
-    ! command git diff-index --quiet HEAD 2>/dev/null ||
-        count (command git ls-files --others --exclude-standard) >/dev/null &&
-        set info \"\$_ando_warn\" && set upstream $ando_symbol_git_dirty
-
-    for fetch in true false
-        command git rev-list --count --left-right @{upstream}...@ 2>/dev/null |
-            read behind ahead
-
-        switch \"\$behind \$ahead\"
-            case \" \" \"0 0\"
-            case \"0 *\"
-                set upstream $ando_symbol_git_ahead
-            case \"* 0\"
-                set upstream $ando_symbol_git_behind
-            case \*
-                set upstream $ando_symbol_git_ahead_behind
-        end
-
-        set --universal $_ando_git \" \$_ando_comment\$branch\$_ando_normal \$_ando_info\$info\$upstream\$_ando_normal\"
-        test \$fetch = true && command git fetch --no-tags 2>/dev/null
-    end
-  " &
-
-    set --global _ando_last_pid (jobs --last --pid)
+    commandline --function force-repaint
 end
 
 set --global _ando_italic (echo -e "\e[3m")
@@ -72,7 +29,7 @@ function _ando_pwd_fun --on-variable PWD
     )
 
     test "$root" != "$_ando_git_root" &&
-    set --global _ando_git_root $root && set $_ando_git
+        set --global _ando_git_root $root && set $_ando_git
 end
 
 function _ando_mode --on-variable fish_bind_mode
@@ -89,15 +46,13 @@ function _ando_mode --on-variable fish_bind_mode
             set mode 'ᛄ'
     end
 
-    set --global _ando_mode  $mode
+    set --global _ando_mode $mode
 end
 
 function _ando_fish_prompt --on-event fish_prompt
     set -l last_status $status # Must be first
 
     set --query _ando_pwd_fun || _ando_pwd_fun
-    set --query _ando_git_fun || _ando_git_fun
-
 
     if not set -q -g __fish_prompt_functions_defined
         set -g __fish_prompt_functions_defined
@@ -114,10 +69,65 @@ function _ando_fish_prompt --on-event fish_prompt
         set --global _ando_status_color "$_ando_error"
     end
 
+    command kill $_ando_last_pid 2>/dev/null
+
+    fish --private --command "
+    # No git repo? just ping the var and exit
+    ! command git --no-optional-locks rev-parse 2>/dev/null && set $_ando_git && exit
+
+    set --global _ando_info_color \"\$_ando_ok\"
+    set --global _ando_upstream \"$ando_symbol_git_clean\"
+
+    function _set_dirty
+        set --global _ando_info_color \"\$_ando_warn\"
+        set --global _ando_upstream $ando_symbol_git_dirty
+    end
+
+    ! command git diff-index --quiet HEAD 2>/dev/null ||
+        count (command git ls-files --others --exclude-standard) >/dev/null &&
+        _set_dirty
+
+    set branch (
+        command git symbolic-ref --short HEAD 2>/dev/null ||
+        command git describe --tags --exact-match HEAD 2>/dev/null ||
+        command git rev-parse --short HEAD 2>/dev/null |
+            string replace --regex -- '(.+)' '@\$1'
+    )
+
+    test -z \"\$$_ando_git\" && set --universal $_ando_git \" \$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
+
+    for fetch in true false
+        command git rev-list --count --left-right @{upstream}...@ 2>/dev/null |
+            read behind ahead
+
+        switch \"\$behind \$ahead\"
+            case \" \" \"0 0\"
+            case \"0 *\"
+                set --global _ando_upstream $ando_symbol_git_ahead
+            case \"* 0\"
+                set --global _ando_upstream $ando_symbol_git_behind
+            case \*
+                set --global _ando_upstream $ando_symbol_git_ahead_behind
+        end
+
+        set --universal $_ando_git \" \$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
+        test \$fetch = true && command git fetch --no-tags 2>/dev/null
+    end
+  " &
+
+    set --global _ando_last_pid (jobs --last --pid)
+
 end
 
 function _ando_fish_exit --on-event fish_exit
     set --erase $_ando_git
+end
+
+function _ando_uninstall --on-event ando_uninstall
+    set --names |
+        string replace --filter --regex -- "^(_?ando_)" "set --erase \$1" |
+        source
+    functions --erase (functions --all | string match --entire --regex "^_?ando_")
 end
 
 set --query ando_symbol_git_clean || set --global ando_symbol_git_clean ◯
