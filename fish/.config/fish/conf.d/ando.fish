@@ -90,7 +90,15 @@ function _ando_fish_prompt --on-event fish_prompt
             string replace --regex -- '(.+)' '@\$1'
     )
 
-    test -z \"\$$_ando_git\" && set --universal $_ando_git \" \$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
+    command git stash list | wc -l | string trim | read stash
+
+    set --global stash_count
+    if test \"\$stash\" -gt 0
+        set --global stash_count \"\$_ando_error\$stash\$_ando_normal \"
+    end
+
+    test -z \"\$$_ando_git\" && set --universal $_ando_git \" \$stash_count\$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
+
 
     for fetch in true false
         command git rev-list --count --left-right @{upstream}...@ 2>/dev/null |
@@ -106,7 +114,7 @@ function _ando_fish_prompt --on-event fish_prompt
                 set --global _ando_upstream $ando_symbol_git_ahead_behind
         end
 
-        set --universal $_ando_git \" \$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
+        set --universal $_ando_git \" \$stash_count\$_ando_comment\$branch\$_ando_normal \$_ando_info_color\$_ando_upstream\$_ando_normal\"
         test \$fetch = true && command git fetch --no-tags 2>/dev/null
     end
   " &
