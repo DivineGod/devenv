@@ -36,7 +36,7 @@ function branch_stats() {
 function pull_push_origin() {
     branch=$([ -z $1 ] && echo "master" || echo "$1" )
     git checkout $branch
-    git pull origin $branch
+    git pull --rebase origin $branch
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
     git fetch -p;
 }
@@ -44,7 +44,7 @@ function pull_push_origin() {
 function pull_push() {
     branch=$([ -z $1 ] && echo "master" || echo "$1" )
     git checkout $branch;
-    git pull upstream $branch;
+    git pull --rebase upstream $branch;
     git push origin $branch --no-verify;
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
     git fetch -p;
@@ -53,7 +53,7 @@ function pull_push() {
 function pull_npm_push() {
     branch=$([ -z $1 ] && echo "master" || echo "$1" )
     git checkout $branch;
-    git pull upstream $branch;
+    git pull --rebase upstream $branch;
     npm i --no-save; # make sure any added packages are available for the pre-push test
     git push origin $branch;
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
