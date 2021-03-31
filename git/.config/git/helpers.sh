@@ -34,7 +34,7 @@ function branch_stats() {
 }
 
 function pull_push_origin() {
-    branch=$([ -z $1 ] && echo "master" || echo "$1" )
+    branch=$([ -z $1 ] && git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' || echo "$1" )
     git checkout $branch
     git pull --rebase origin $branch
     git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
@@ -42,7 +42,7 @@ function pull_push_origin() {
 }
 
 function pull_push() {
-    branch=$([ -z $1 ] && echo "master" || echo "$1" )
+    branch=$([ -z $1 ] && git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@' || echo "$1" )
     git checkout $branch;
     git pull --rebase upstream $branch;
     git push origin $branch --no-verify;
