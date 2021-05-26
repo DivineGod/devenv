@@ -1,3 +1,15 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "json", "rust"]
+     "languageserver": {
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "json", "rust", "terraform"]
 }
