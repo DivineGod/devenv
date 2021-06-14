@@ -14,6 +14,5 @@
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "json", "rust", "terraform"],
     "rust-analyzer.linkedProjects": [
         "Cargo.toml",
-        "firmware/Cargo.toml"
     ]
 }
