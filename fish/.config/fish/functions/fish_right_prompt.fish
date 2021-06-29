@@ -1,8 +1,9 @@
 function __ando_is_git_repo
-    type -q git; or return 1
-    git check-ignore -q . >/dev/null ^/dev/null
-    [ $status != 0 ]; and git status -s >/dev/null ^/dev/null
+    type -q git; or return 1 # Check if git exists in path
+    git check-ignore -q . >/dev/null 2>/dev/null
+    [ $status != 0 ]; and git status -s >/dev/null 2>/dev/null
 end
+
 function __ando_git_status
     # Reset state if this call is *not* due to a redraw request
     set -l prev_dirty $__ando_dirty
@@ -110,21 +111,21 @@ function __ando_git_status
         end
 
         function _git_branch_name
-            echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+            echo (git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
         end
 
         function _is_git_dirty
-            set -l _git_state (git status -s --ignore-submodules=dirty ^/dev/null)
+            set -l _git_state (git status -s --ignore-submodules=dirty 2>/dev/null)
             [ "$_git_state" != "" ]
         end
 
         function _is_git_ahead
-            set -l revs (git rev-list origin/(_git_branch_name)..HEAD ^/dev/null)
+            set -l revs (git rev-list origin/(_git_branch_name)..HEAD 2>/dev/null)
             [ "$revs" != "" ]
         end
 
         function _is_git_behind
-            set -l revs (git rev-list HEAD..origin/(_git_branch_name) ^/dev/null)
+            set -l revs (git rev-list HEAD..origin/(_git_branch_name) 2>/dev/null)
             [ "$revs" != "" ]
         end
 
