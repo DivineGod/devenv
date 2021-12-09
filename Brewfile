@@ -23,7 +23,6 @@ brew "stow"
 brew "tmux"
 brew "vim", args: ["HEAD"]
 brew "armmbed/formulae/arm-none-eabi-gcc"
-brew "hashicorp/tap/terraform-ls"
 brew "qmk/qmk/qmk"
 cask "font-fira-code"
 cask "font-victor-mono"

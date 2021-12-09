@@ -27,7 +27,7 @@ endif
 
 ifndef BREW
 	echo "Homebrew isn't installed... Installing"
-	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | sh
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
 endif
 
