@@ -9,7 +9,7 @@
     status = auto
     branch = auto
 [core]
-    excludesfile = /Users/voidedgin/.global_ignore
+	excludesfile = /Users/dg/.config/git/ignore
     editor = vim
     ignorecase = false
 [alias]
