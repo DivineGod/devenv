@@ -4,6 +4,7 @@
 " Load plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'junegunn/goyo.vim'
 Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
 Plug 'airblade/vim-rooter'
 Plug 'srstevenson/vim-picker'
@@ -31,6 +32,8 @@ call plug#end()
 " let g:ale_linters = {'rust': ['rustc', 'analyzer']}
 " let g:ale_fixers = {'rust': ['rustfmt']}
 " let g:ale_fixer_on_save = 1
+
+let g:goyo_width = 120
 
 autocmd!
 
