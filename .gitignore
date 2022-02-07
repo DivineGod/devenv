@@ -1,3 +1,10 @@
+vim/.vim/autoload/plug.vim
 vim/.vim/pack
+vim/.vim/bundle
 vim/.vim/colors
+fish/.config/fish/completions
+fish/.config/fish/conf.d/nvm.fish
+fish/.config/fish/functions/_*
+fish/.config/fish/functions/fisher.fish
+fish/.config/fish/functions/nvm.fish
 Brewfile.lock.json
