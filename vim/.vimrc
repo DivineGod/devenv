@@ -19,9 +19,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-j
 
 " Color Scheme Plugins
 " Plug 'morhetz/gruvbox'
-" Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/gruvbox-material'
 " Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
 
 " Doesn't quite work right with termguicolors so that section needs to be disabled if you want the OG.
 " Plug 'altercation/vim-colors-solarized'
@@ -175,8 +175,8 @@ if exists('+termguicolors')
   let g:solarized_termtrans=0
 endif
 
-set background=light
-colorscheme solarized8
+set background=dark
+colorscheme gruvbox-material
 
 highlight Comment cterm=italic
 

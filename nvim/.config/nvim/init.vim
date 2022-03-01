@@ -39,8 +39,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'rust-lang/rust.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'lifepillar/vim-solarized8'
+Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
@@ -62,8 +66,8 @@ if exists('+termguicolors')
   let g:solarized_termtrans=0
 endif
 
-set background=light
-colorscheme solarized8
+set background=dark
+colorscheme gruvbox-material
 
 let mapleader=","
 
