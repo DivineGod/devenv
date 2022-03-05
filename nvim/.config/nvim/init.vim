@@ -208,3 +208,5 @@ augroup END
 " Permanent undo
 set undodir=~/.nvimdid
 set undofile
+
+let g:rooter_patterns = ['.git']

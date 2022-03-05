@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export PYENV_ROOT:/Users/dg/\x2epyenv
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/dg/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/dg/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/Users/dg/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/Users/dg/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/Users/dg/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/Users/dg/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/Users/dg/\x2econfig/fish/functions/nvm\x2efish\x1e/Users/dg/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/Users/dg/\x2econfig/fish/completions/nvm\x2efish
@@ -30,6 +31,6 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/dg/\x2epoetry/bin\x1e/Users/dg/\x2ecargo/bin\x1e/usr/local/sbin
+SETUVAR fish_user_paths:/Users/dg/\x2epyenv/bin\x1e/Users/dg/go/bin\x1e/usr/local/sbin\x1e/Users/dg/\x2epoetry/bin\x1e/Users/dg/\x2ecargo/bin\x1e/usr/local/sbin
 SETUVAR nvm_data:/Users/dg/\x2elocal/share/nvm
 SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
