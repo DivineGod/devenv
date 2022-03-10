@@ -231,6 +231,31 @@ set shortmess+=c " don't give |ins-completion-menu| messages.
 " Verbose: set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
+" Enable file type detection
+filetype plugin indent on
+
+"http://stackoverflow.com/questions/526858/
+" set emacs-style tab completing when selecting files, etc
+"Make vim do normal bash like tab completion for file names
+"set wildmode=longest,list,full
+set wildmode=longest,list,full
+set wildmenu
+" Fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
+" Normally, Vim messes with iskeyword when you open a shell file. This can
+" leak out, polluting other file types even after a 'set ft=' change. This
+" variable prevents the iskeyword change so it can't hurt anyone.
+let g:sh_noisk=1
+" Modelines (comments that set vim options on a per-file basis)
+set modeline
+set modelines=3
+" Turn folding off for real, hopefully
+set foldmethod=manual
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLOURS
