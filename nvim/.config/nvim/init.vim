@@ -245,6 +245,8 @@ endif
 
 set background=dark
 colorscheme gruvbox-material
+syntax on
+hi Normal ctermbg=NONE
 
 """ Fuzzy finder
 nmap <leader>f :call picker#File('find . -type f', 'edit')<CR>
