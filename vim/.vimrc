@@ -4,17 +4,17 @@
 " Load plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'junegunn/goyo.vim'
-Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
-Plug 'airblade/vim-rooter'
-Plug 'srstevenson/vim-picker'
-" Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
+" Plug 'junegunn/goyo.vim'
+" Plug 'ap/vim-css-color', { 'for': ['javascript', 'css', 'html'] }
+" Plug 'airblade/vim-rooter'
+" Plug 'srstevenson/vim-picker'
+" " Plug 'sheerun/vim-polyglot'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'rust-lang/rust.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'} " :CocInstall coc-tsserver coc-json coc-eslint coc-prettier
 " Plug 'dense-analysis/ale'
 
 " Color Scheme Plugins
