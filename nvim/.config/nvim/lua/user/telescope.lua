@@ -21,15 +21,15 @@ telescope.setup {
 
     prompt_prefix = " ",
     selection_caret = " ",
-    path_display = { "smart" },
+    --path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
 
-    vimgrep_arguments = vimgrep_arguments,
 
     pickers = {
       find_files = {
         -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-        find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+        hidden = true,
+        find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git"},
       },
     },
 
