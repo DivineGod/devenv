@@ -4,6 +4,7 @@ set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.poetry/bin"
 fish_add_path "$HOME/go/bin"
+fish_add_path "$HOME/.local/bin"
 
 if status --is-interactive
   set -x EDITOR "vim"
