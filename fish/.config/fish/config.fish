@@ -7,7 +7,7 @@ fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/.local/bin"
 
 if status --is-interactive
-  set -x EDITOR "vim"
+  set -x EDITOR "nvim"
   eval (/opt/homebrew/bin/brew shellenv)
 end
 

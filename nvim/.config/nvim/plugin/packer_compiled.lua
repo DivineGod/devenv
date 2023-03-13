@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/dg/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["kdl.vim"] = {
+    loaded = true,
+    path = "/Users/dg/.local/share/nvim/site/pack/packer/start/kdl.vim",
+    url = "https://github.com/imsnif/kdl.vim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/dg/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
