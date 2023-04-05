@@ -27,6 +27,8 @@
           <string>#899c4040</string>
           <key>misspelling</key>
           <string>#da6362</string>
+          <key>gutterForeground</key>
+          <string>#d3c6aa</string>
         </dict>
       </dict>
       <dict>
