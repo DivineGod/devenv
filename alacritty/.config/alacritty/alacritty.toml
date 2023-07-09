@@ -1,0 +1,39 @@
+import = ["/Users/dg/.config/alacritty/colors.toml"]
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "VictorMono Nerd Font Mono"
+style = "Medium"
+
+[font.bold_italic]
+family = "VictorMono Nerd Font Mono"
+style = "Medium Italic"
+
+[font.italic]
+family = "VictorMono Nerd Font Mono"
+style = "Light Italic"
+
+[font.normal]
+family = "VictorMono Nerd Font Mono"
+style = "Light"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Command"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+dynamic_padding = true
+dynamic_title = true
+option_as_alt = "OnlyLeft"
+startup_mode = "Maximized"
+
+[window.padding]
+x = 2
+y = 0
