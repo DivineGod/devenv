@@ -8,7 +8,7 @@ fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/Luxonis/depthai/entrypoint"
 
 if status --is-interactive
-  set -x EDITOR "nvim"
+  set -x EDITOR "hx"
   eval (/opt/homebrew/bin/brew shellenv)
 end
 

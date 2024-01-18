@@ -10,7 +10,7 @@
     branch = auto
 [core]
 	excludesfile = /Users/dg/.config/git/ignore
-    editor = nvim
+    editor = $EDITOR
     ignorecase = false
 [alias]
     st = status -sb
