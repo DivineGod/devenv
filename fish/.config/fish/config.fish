@@ -10,6 +10,7 @@ fish_add_path "$HOME/Luxonis/depthai/entrypoint"
 if status --is-interactive
   set -x EDITOR "hx"
   eval (/opt/homebrew/bin/brew shellenv)
+  atuin init fish | source
 end
 
 direnv hook fish | source
