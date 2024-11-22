@@ -1,3 +1,4 @@
+FISH      := $(shell fish --version 2>/dev/null)
 BREW      := $(shell brew --version 2>/dev/null)
 CLI_TOOLS := $(xcode-select --install 2>&1 | grep installed;)
 RUSTUP    := $(shell rustup --version 2>/dev/null)
@@ -9,9 +10,6 @@ stow:
 	stow fish
 	stow git
 	stow alacritty
-	stow vim
-	stow nvim
-	stow tmux
 	stow bat
 
 install:
@@ -28,15 +26,11 @@ endif
 ifndef BREW
 	echo "Homebrew isn't installed... Installing"
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo >> /Users/dg/.zprofile
+	echo 'eval "$$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dg/.zprofile
+	eval "$$(/opt/homebrew/bin/brew shellenv)"
 else
 endif
 
-	brew bundle
+	/opt/homebrew/bin/brew bundle
 	make stow
-
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-ifeq ($(wildcard ~/.tmux/plugins/tpm/.),)
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-endif
