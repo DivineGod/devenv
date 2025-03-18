@@ -1,0 +1,6 @@
+[tools]
+go = "latest"
+node = "latest"
+python = "3.11.11"
+usage = "latest"
+uv = "latest"

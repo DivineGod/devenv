@@ -1,0 +1,30 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "inlay_hints": { "enabled": true },
+  "ui_font_size": 16,
+  "buffer_font_size": null,
+  "theme": {
+    "mode": "system",
+    "light": "Rosé Pine Dawn",
+    "dark": "Rosé Pine Moon"
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always"
+  },
+  "tab_size": 4,
+  "show_whitespaces": "boundary",
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 120],
+  "soft_wrap": "editor_width"
+}

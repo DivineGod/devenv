@@ -8,3 +8,4 @@ fish/.config/fish/functions/_*
 fish/.config/fish/functions/fisher.fish
 fish/.config/fish/functions/nvm.fish
 Brewfile.lock.json
+zed/prompts
