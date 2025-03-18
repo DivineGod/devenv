@@ -1,4 +1,4 @@
 --target=~/.config
---ignore=.stowrc
+--ignore=.stowrc|Makefile|Brewfile
 --ignore=DS_Store
 --ignore=atuin/*
