@@ -1,0 +1,33 @@
+# Colors (Oceanic-Next)
+
+[colors.bright]
+black = '#68737d'
+blue = '#7198c8'
+cyan = '#74b1b2'
+green = '#a2c699'
+magenta = '#bd96c2'
+red = '#db686b'
+white = '#ffffff'
+yellow = '#f2ca73'
+
+[colors.cursor]
+cursor = '#c1c5cd'
+text = '#1e2b33'
+
+[colors.normal]
+black = '#1b2b34'
+blue = '#7198c8'
+cyan = '#74b1b2'
+green = '#a2c699'
+magenta = '#bd96c2'
+red = '#db686b'
+white = '#ffffff'
+yellow = '#f2ca73'
+
+[colors.primary]
+background = '#1b2b34'
+foreground = '#c1c5cd'
+
+[colors.selection]
+background = '#515b65'
+text = '#c1c5cd'

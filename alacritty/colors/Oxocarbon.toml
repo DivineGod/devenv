@@ -1,0 +1,33 @@
+# Colors (Oxocarbon)
+
+[colors.bright]
+black = '#585858'
+blue = '#42be65'
+cyan = '#ff7eb6'
+green = '#33b1ff'
+magenta = '#be95ff'
+red = '#3ddbd9'
+white = '#f2f4f8'
+yellow = '#ee5396'
+
+[colors.cursor]
+cursor = '#ffffff'
+text = '#000000'
+
+[colors.normal]
+black = '#161616'
+blue = '#42be65'
+cyan = '#ff7eb6'
+green = '#33b1ff'
+magenta = '#be95ff'
+red = '#3ddbd9'
+white = '#f2f4f8'
+yellow = '#ee5396'
+
+[colors.primary]
+background = '#161616'
+foreground = '#f2f4f8'
+
+[colors.selection]
+background = '#393939'
+text = '#161616'
