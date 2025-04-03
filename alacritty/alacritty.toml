@@ -3,20 +3,20 @@
 size = 13.0
 
 [font.bold]
-family = "VictorMono Nerd Font Mono"
+family = "Atkinson Hyperlegible Mono"
 style = "Medium"
 
 [font.bold_italic]
-family = "VictorMono Nerd Font Mono"
+family = "Atkinson Hyperlegible Mono"
 style = "Medium Italic"
 
 [font.italic]
-family = "VictorMono Nerd Font Mono"
-style = "Light Italic"
+family = "Atkinson Hyperlegible Mono"
+style = "ExtraLight Italic"
 
 [font.normal]
-family = "VictorMono Nerd Font Mono"
-style = "Light"
+family = "Atkinson Hyperlegible Mono"
+style = "ExtraLight"
 
 [[keyboard.bindings]]
 action = "CreateNewWindow"
