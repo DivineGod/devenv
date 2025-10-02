@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": { "enabled": false },
   "features": {
     "edit_prediction_provider": "none"
   },
@@ -22,7 +23,7 @@
   },
   "vim_mode": true,
   "vim": {
-    "use_system_clipboard": "always"
+    "use_system_clipboard": "never"
   },
   "show_whitespaces": "boundary",
   "show_wrap_guides": true,
