@@ -7,7 +7,6 @@ end
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source ~/export-esp.sh
-/Users/dg/.local/bin/mise activate fish | source
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
