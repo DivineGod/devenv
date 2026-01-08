@@ -10,3 +10,4 @@ fish/.config/fish/functions/nvm.fish
 helix/runtime
 Brewfile.lock.json
 zed/prompts
+nvim/plugin/packer_compiled.lua
